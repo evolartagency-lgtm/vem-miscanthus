@@ -33,6 +33,7 @@ export function SiteHeader({ dict, locale }: { dict: Dictionary; locale: Locale 
           >
             {dict.nav.contact}
           </Link>
+          <MobileMenu items={dict.nav.site} locale={locale} contactLabel={dict.nav.contact} />
         </div>
         <MobileMenu items={mobileItems} locale={locale} contactLabel={dict.nav.contact} />
       </div>

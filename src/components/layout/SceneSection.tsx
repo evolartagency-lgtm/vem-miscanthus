@@ -6,8 +6,8 @@ export function TickList({ items }: { items: readonly string[] }) {
   return (
     <ul className="grid gap-x-8 gap-y-2 sm:grid-cols-2">
       {items.map((item) => (
-        <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-stone-200/90">
-          <IconCheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-biomass" />
+        <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-stone-700">
+          <IconCheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-[#1d3b2a]" />
           <span>{item}</span>
         </li>
       ))}
@@ -17,7 +17,7 @@ export function TickList({ items }: { items: readonly string[] }) {
 
 export function Panel({ children, className = "" }: { children: ReactNode; className?: string }) {
   return (
-    <div className={`border border-white/10 bg-black/55 p-6 backdrop-blur-md sm:p-8 ${className}`}>
+    <div className={`border border-black/10 bg-white/85 p-6 backdrop-blur-md sm:p-8 ${className}`}>
       {children}
     </div>
   );
@@ -61,7 +61,7 @@ export function SceneSection({
   return (
     <section
       id={`section-${num}`}
-      className={`scene-section relative flex items-center overflow-hidden ${compact ? "min-h-[560px]" : "min-h-[720px]"}`}
+      className={`scene-section relative flex items-end overflow-hidden lg:items-center ${compact ? "min-h-[560px]" : "min-h-[720px]"}`}
     >
       <div
         aria-hidden
@@ -70,7 +70,7 @@ export function SceneSection({
       />
       <div
         aria-hidden
-        className="absolute inset-0 bg-[linear-gradient(90deg,rgba(248,247,242,.98)_0%,rgba(248,247,242,.95)_34%,rgba(248,247,242,.52)_58%,rgba(248,247,242,.04)_82%)]"
+        className="absolute inset-0 bg-[linear-gradient(180deg,rgba(248,247,242,0)_0%,rgba(248,247,242,0)_30%,rgba(248,247,242,.6)_52%,rgba(248,247,242,.98)_72%)] lg:bg-[linear-gradient(90deg,rgba(248,247,242,.98)_0%,rgba(248,247,242,.95)_34%,rgba(248,247,242,.52)_58%,rgba(248,247,242,.04)_82%)]"
       />
       <div
         aria-hidden
@@ -85,9 +85,9 @@ export function SceneSection({
       </div>
       <div
         aria-hidden
-        className="absolute bottom-7 right-6 hidden items-center gap-3 font-technical text-[9px] tracking-[.18em] text-white/35 sm:flex lg:right-14"
+        className="absolute bottom-7 right-6 hidden items-center gap-3 font-technical text-[9px] tracking-[.18em] text-stone-500 sm:flex lg:right-14"
       >
-        <span className="h-px w-16 bg-white/25" />
+        <span className="h-px w-16 bg-black/25" />
         <span>{cornerRight ?? num}</span>
       </div>
       <div className="relative mx-auto w-full max-w-[1440px] px-6 py-24 sm:px-10 lg:px-14">
@@ -100,7 +100,7 @@ export function SceneSection({
             </span>
           </div>
           <Title
-            className={`section-title max-w-[760px] font-serif text-[clamp(2.5rem,4.4vw,4.6rem)] font-normal leading-[1.04] tracking-[-0.01em] text-[#15241d] ${titleUppercase ? "uppercase" : ""}`}
+            className={`section-title max-w-[760px] font-serif text-[clamp(2.1rem,7.5vw,4.6rem)] font-normal lg:text-[clamp(2.5rem,4.4vw,4.6rem)] leading-[1.04] tracking-[-0.01em] text-[#15241d] ${titleUppercase ? "lg:uppercase" : ""}`}
           >
             {displayTitle}
           </Title>
@@ -117,7 +117,7 @@ export function SceneSection({
         )}
         {cta && href && (
           <Reveal delay={0.2} className="mt-9">
-            <CtaLink href={href}>
+            <CtaLink href={href} className="w-full justify-center sm:w-auto">
               {cta}
               <span aria-hidden>→</span>
             </CtaLink>

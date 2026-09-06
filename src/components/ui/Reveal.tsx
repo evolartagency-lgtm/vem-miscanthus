@@ -42,7 +42,7 @@ export function CtaLink({
     variant === "solid"
       ? "rounded-full bg-[#1d3b2a] text-[#f3efe2] hover:bg-[#27503a]"
       : variant === "outline"
-        ? "rounded-full border border-[#1d3b2a]/35 text-[#1c2521] hover:border-[#1d3b2a]/70 hover:bg-[#1d3b2a]/5"
+        ? "rounded-full border border-white/40 bg-white/10 text-[#f3efe2] hover:border-biomass/70 hover:bg-biomass/20"
         : "rounded-full text-biomass hover:text-beige";
   return (
     <a
