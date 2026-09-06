@@ -1,0 +1,29 @@
+{
+  "name": "vem-site",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "images:generate": "node scripts/generate-images.mjs"
+  },
+  "dependencies": {
+    "framer-motion": "^11.15.0",
+    "gsap": "^3.12.5",
+    "next": "^15.1.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@netlify/plugin-nextjs": "^5.15.13",
+    "@tailwindcss/postcss": "^4.0.0",
+    "@types/node": "^22.10.5",
+    "@types/react": "^19.0.4",
+    "@types/react-dom": "^19.0.2",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.7.3"
+  }
+}
