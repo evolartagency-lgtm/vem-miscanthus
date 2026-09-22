@@ -112,6 +112,13 @@ html[dir="rtl"] .hero-availability {
   background: linear-gradient(270deg, rgba(5, 17, 12, 0.62), rgba(5, 17, 12, 0.12));
 }
 
+/* Hebrew (RTL): mirror decorative photography so compositions read right-to-left.
+   Uses the independent `scale` property so it never conflicts with the
+   transform-based hover/zoom effects on the same layers. */
+html[dir="rtl"] div[aria-hidden].bg-cover {
+  scale: -1 1;
+}
+
 html[lang="uk"] .section-title,
 html[lang="uk"] .hero-scene h1 {
   font-weight: 500;
