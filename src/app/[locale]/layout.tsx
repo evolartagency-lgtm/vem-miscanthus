@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
-import { Sora, Manrope, IBM_Plex_Mono, Heebo, Tenor_Sans } from "next/font/google";
+import { Sora, Manrope, IBM_Plex_Mono, Heebo, Montserrat } from "next/font/google";
 import { isLocale, isRtl, locales } from "@/i18n/config";
 import "../globals.css";
 
@@ -18,9 +18,9 @@ const cyrillicSans = Manrope({
   display: "swap",
 });
 
-const displaySans = Tenor_Sans({
+const displaySans = Montserrat({
   subsets: ["latin", "cyrillic"],
-  weight: "400",
+  weight: ["600", "700"],
   variable: "--font-display-src",
   display: "swap",
 });
