@@ -73,12 +73,12 @@ export function HomeLanding({ dict, locale }: { dict: Dictionary; locale: Locale
             </ol>
             <ul className="mt-6 grid gap-2.5 lg:hidden">
               {h.rhizomes.features.slice(0, 3).map((f) => (
-                <li key={f} className="flex items-center gap-3 text-[13px] leading-snug text-[#34463d]">
-                  <IconCheckCircle className="h-4 w-4 shrink-0 text-[#8a6a2f]" aria-hidden />{f}
+                <li key={f} className="flex items-center gap-3 text-[13px] leading-snug text-[#e9e4d5]">
+                  <IconCheckCircle className="h-4 w-4 shrink-0 text-[#d5b36d]" aria-hidden />{f}
                 </li>
               ))}
             </ul>
-            <Link href={p("/buy-rhizomes")} className="cta-modern mt-7 inline-block rounded-full border border-biomass/80 bg-[linear-gradient(135deg,#ead09f,#c99f61)] px-7 py-3.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#221a0c] shadow-[0_10px_34px_rgba(164,118,47,.28)] transition-all hover:-translate-y-0.5">
+            <Link href={p("/buy-rhizomes")} className="cta-modern mt-7 hidden lg:inline-block rounded-full border border-biomass/80 bg-[linear-gradient(135deg,#ead09f,#c99f61)] px-7 py-3.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#221a0c] shadow-[0_10px_34px_rgba(164,118,47,.28)] transition-all hover:-translate-y-0.5">
               {h.rhizomes.ctaPrimary} <span aria-hidden>→</span>
             </Link>
           </Reveal>
