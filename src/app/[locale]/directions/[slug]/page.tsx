@@ -75,7 +75,7 @@ export default async function FunnelPage({
         <section className="relative overflow-hidden px-6 pb-12 pt-32 sm:px-10 lg:px-14">
           <div aria-hidden className="absolute inset-0 bg-cover bg-center opacity-[.07]" style={{ backgroundImage: "url(/images/hero-field.png)" }} />
           <div className="relative mx-auto max-w-[1440px]">
-            <Link href={p("/funnels")} className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#42554b] transition-colors hover:text-biomass">
+            <Link href={p("/directions")} className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#42554b] transition-colors hover:text-biomass">
               {f.allFunnels}
             </Link>
             <div className="mt-6 flex flex-wrap items-center gap-3">

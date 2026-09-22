@@ -83,7 +83,7 @@ export default async function FunnelsCatalogPage({
                   {items.map((funnel) => (
                     <Link
                       key={funnel.slug}
-                      href={p(`/funnels/${funnel.slug}`)}
+                      href={p(`/directions/${funnel.slug}`)}
                       className="group flex min-h-[150px] flex-col border border-black/10 bg-white/70 p-5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[#173c2c]/35 hover:bg-white/90"
                     >
                       <span className="font-technical text-[10px] tracking-[0.2em] text-biomass">
