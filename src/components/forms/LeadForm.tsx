@@ -18,6 +18,8 @@ export interface FormConfig {
   description?: string;
   submitLabel: string;
   successMessage: string;
+  /** Optional small label above the title; set "" to hide the default type tag. */
+  kickerLabel?: string;
   fields: Field[];
 }
 
@@ -79,7 +81,9 @@ export function LeadForm({
 
   return (
     <form onSubmit={onSubmit} noValidate className="mt-24 grid w-full gap-10 border-t border-white/[0.07] pt-8 lg:grid-cols-[280px_1fr] lg:gap-16">
-      <div><p className="mb-3 text-[9px] font-semibold uppercase tracking-[.25em] text-biomass">{config.type}</p><h2 className="text-2xl font-medium tracking-[-.03em] text-bone sm:text-3xl">
+      <div>{config.kickerLabel !== "" && (
+        <p className="mb-3 text-[9px] font-semibold uppercase tracking-[.25em] text-biomass">{config.kickerLabel ?? config.type}</p>
+      )}<h2 className="text-2xl font-medium tracking-[-.03em] text-bone sm:text-3xl">
         {config.title}
       </h2>
       {config.description && (

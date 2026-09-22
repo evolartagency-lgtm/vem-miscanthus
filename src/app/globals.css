@@ -1083,3 +1083,55 @@ html[dir="rtl"] .hero-scene > div:nth-child(2) {
     font-family: var(--font-hebrew-src), "Segoe UI", system-ui, sans-serif;
   }
 }
+
+/* Mobile landing scenes: editorial serif + gentle photo reveal. */
+.mobile-landing h1,
+.mobile-landing h2 {
+  font-family: var(--font-display-src), Georgia, "Times New Roman", serif;
+}
+
+html[lang="he"] .mobile-landing h1,
+html[lang="he"] .mobile-landing h2 {
+  font-family: var(--font-hebrew-src), "Segoe UI", system-ui, sans-serif;
+}
+
+.mobile-landing .photo-layer > img {
+  transition: transform 2.6s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-landing .photo-layer > img {
+    transition: none;
+  }
+}
+
+/* Mobile contact panel: keep the form panel light-on-cream and readable. */
+@media (max-width: 1023px) {
+  .mobile-landing .lead-panel,
+  .mobile-landing .lead-panel h2,
+  .mobile-landing .lead-panel p,
+  .mobile-landing .lead-panel label,
+  .mobile-landing .lead-panel span,
+  .mobile-landing .lead-panel input,
+  .mobile-landing .lead-panel select,
+  .mobile-landing .lead-panel textarea {
+    color: #1c2521 !important;
+  }
+
+  .mobile-landing .lead-panel .text-biomass {
+    color: #8a6a2f !important;
+  }
+
+  .mobile-landing .lead-panel input,
+  .mobile-landing .lead-panel select,
+  .mobile-landing .lead-panel textarea {
+    background: #fff;
+    border-color: rgba(23, 60, 44, 0.2);
+  }
+
+  .mobile-landing .lead-panel button.cta-modern {
+    background: linear-gradient(135deg, #ead09f, #c99f61);
+    color: #221a0c !important;
+    min-height: 52px;
+  }
+}

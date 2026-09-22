@@ -30,6 +30,43 @@ const SLOTS = {
   "esg-tablet": `Hands holding a tablet showing a dark analytics dashboard with charts, blurred green field background at dusk, ${STYLE}`,
   "miscanthus-industries": `Industrial biomass processing facility with bales of tall grass and warm industrial lighting at night, dark cinematic mood, ${STYLE}`,
   "router-field": `Extreme close-up of dark miscanthus grass blades at dusk, deep near-black shadows, subtle teal and warm golden rim light, moody minimal background texture, ${STYLE}`,
+  /* Mobile-first vertical scenes (portrait) */
+  "m-hero-plants": {
+    size: "1024x1536",
+    prompt: `Extreme close-up of young miscanthus grass shoots covered with morning dew drops at dawn, tall dark grass around, deep moody green tones with warm golden sunrise rim light, shallow depth of field, cinematic photorealistic, no text, no watermark`,
+  },
+  "m-rhizomes-hands": {
+    size: "1024x1536",
+    prompt: `Farmer's cupped hands holding fresh miscanthus rhizomes with rich dark soil, dark earthy farm background fading to black, warm golden side light, cinematic photorealistic, premium editorial look, no text, no watermark`,
+  },
+  "m-field-mist": {
+    size: "1024x1536",
+    prompt: `Vast green miscanthus field in soft rolling morning mist with low golden sunlight, dreamy layers of haze, cinematic photorealistic, premium editorial look, no text, no watermark`,
+  },
+  "m-land-rebirth": {
+    size: "1024x1536",
+    prompt: `Wide open horizon over a restored agricultural field with rows of fresh green miscanthus sprouts on former barren land, hopeful golden dawn light, soft haze, cinematic photorealistic, no text, no watermark`,
+  },
+  "m-grass-sun": {
+    size: "1024x1536",
+    prompt: `Close-up of tall miscanthus grass blades backlit by warm sunlight with gentle lens flare and bright soft sky, fresh green and gold tones, cinematic photorealistic, no text, no watermark`,
+  },
+  "m-forest-mist": {
+    size: "1024x1536",
+    prompt: `Misty treeline and forest edge at dawn with soft golden light rays through haze, deep green and warm gold tones, calm cinematic atmosphere, no text, no watermark`,
+  },
+  "m-bales": {
+    size: "1024x1536",
+    prompt: `Stacked golden biomass bales in a harvested field at dusk under a warm dramatic sky, cinematic agricultural landscape, premium editorial look, no text, no watermark`,
+  },
+  "m-handshake": {
+    size: "1024x1536",
+    prompt: `Businessman and farmer shaking hands in a green miscanthus field at golden hour, warm backlight and soft flare, cinematic photorealistic, premium editorial look, no text, no watermark`,
+  },
+  "m-leaves-dark": {
+    size: "1024x1536",
+    prompt: `Dark green miscanthus leaves arranged elegantly against a near-black deep green background, minimal botanical texture, subtle warm golden rim light, cinematic, no text, no watermark`,
+  },
 };
 
 function loadEnv() {
@@ -90,13 +127,13 @@ async function generateWithFal(prompt) {
   return { buf: Buffer.from(await imgRes.arrayBuffer()), url: imageUrl };
 }
 
-async function generateWithOpenAI(prompt) {
+async function generateWithOpenAI(prompt, size = "1536x1024") {
   const key = process.env.OPENAI_API_KEY;
   if (!key) throw new Error("OPENAI_API_KEY is not set (.env.local)");
   const res = await fetch("https://api.openai.com/v1/images/generations", {
     method: "POST",
     headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ model: process.env.OPENAI_IMAGE_MODEL ?? "gpt-image-1", prompt, size: "1536x1024" }),
+    body: JSON.stringify({ model: process.env.OPENAI_IMAGE_MODEL ?? "gpt-image-1", prompt, size }),
   });
   if (!res.ok) throw new Error(`openai failed: ${res.status} ${await res.text()}`);
   const data = await res.json();
@@ -110,8 +147,8 @@ async function generateWithOpenAI(prompt) {
   throw new Error("no image in OpenAI response");
 }
 
-async function generateSlot(slot, prompt, provider) {
-  const { buf, url } = provider === "openai" ? await generateWithOpenAI(prompt) : await generateWithFal(prompt);
+async function generateSlot(slot, prompt, provider, size) {
+  const { buf, url } = provider === "openai" ? await generateWithOpenAI(prompt, size) : await generateWithFal(prompt);
   const ext = (url.split("?")[0].match(/\.(png|jpe?g|webp)$/) ?? [, provider === "openai" ? "png" : "jpg"])[1];
   const file = path.join(OUT_DIR, `${slot}.${ext}`);
   writeFileSync(file, buf);
@@ -127,7 +164,9 @@ async function main() {
   const slots = requested.length > 0 && !requested.includes("all") ? requested : Object.keys(SLOTS);
 
   for (const slot of slots) {
-    const prompt = SLOTS[slot];
+    const entry = SLOTS[slot];
+    const prompt = typeof entry === "string" ? entry : entry?.prompt;
+    const size = typeof entry === "object" && entry?.size ? entry.size : "1536x1024";
     if (!prompt) {
       console.error(`unknown slot: ${slot} (known: ${Object.keys(SLOTS).join(", ")})`);
       continue;
@@ -138,7 +177,7 @@ async function main() {
       continue;
     }
     try {
-      await generateSlot(slot, prompt, provider);
+      await generateSlot(slot, prompt, provider, size);
     } catch (err) {
       console.error(`✖ ${slot}: ${err.message}`);
       process.exitCode = 1;
