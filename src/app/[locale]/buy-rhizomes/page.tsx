@@ -56,12 +56,13 @@ export default async function BuyRhizomesPage({
           title={o.title}
           lead={o.lead}
           image="/images/roots-soil.png"
-          imagePosition="60% center"
-          compact
+          imagePosition="center"
           wide
           titleUppercase={locale !== "he"}
         >
-          <RhizomeOrder dict={dict} />
+          <div className="xl:max-w-[880px]">
+            <RhizomeOrder dict={dict} />
+          </div>
         </SceneSection>
 
         <SceneSection
