@@ -684,9 +684,7 @@ html[dir="rtl"] .hero-scene > div:nth-child(2) {
     -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 84%, rgba(0,0,0,.35) 96%, transparent 100%);
   }
 
-  .scene-section > div:nth-child(2) {
-    background: linear-gradient(180deg, rgba(248,247,242,.86) 0%, rgba(248,247,242,.72) 45%, rgba(248,247,242,.44) 72%, rgba(248,247,242,.16) 100%);
-  }
+  /* (white fog removed — light scenes now use a clean cream copy block + photo strip) */
 
   .scene-section > .relative {
     padding: 5.5rem 1.15rem 5rem;
@@ -1112,5 +1110,33 @@ html[dir="rtl"] .hero-scene > div:nth-child(2) {
 
   .hero-scene {
     min-height: 92svh;
+  }
+}
+
+
+/* Light scenes on mobile: solid cream copy block on top, clean photo strip
+   below — no white haze washing over the photography. */
+@media (max-width: 1023px) {
+  .scene-section:not(.scene-dark) {
+    min-height: 100svh;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: #f8f7f2;
+  }
+
+  .scene-section:not(.scene-dark) > div:first-child {
+    inset: auto 0 0 0;
+    height: 46svh;
+    mask-image: linear-gradient(to top, #000 78%, rgba(0, 0, 0, 0.45) 92%, rgba(0, 0, 0, 0.12) 100%);
+    -webkit-mask-image: linear-gradient(to top, #000 78%, rgba(0, 0, 0, 0.45) 92%, rgba(0, 0, 0, 0.12) 100%);
+  }
+
+  .scene-section:not(.scene-dark) > div:nth-child(2),
+  .scene-section:not(.scene-dark) > .scene-scrim {
+    background: linear-gradient(180deg, #f8f7f2 0%, #f8f7f2 40%, rgba(248, 247, 242, 0.5) 55%, rgba(248, 247, 242, 0) 68%);
+  }
+
+  .scene-section:not(.scene-dark) > .relative {
+    padding: 5.5rem 1.4rem 2rem;
   }
 }
