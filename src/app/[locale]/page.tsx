@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { HomeLanding } from "@/components/home/HomeLanding";
-import { MobileLanding } from "@/components/home/MobileLanding";
 import { resolvePage } from "@/lib/page-meta";
 
 export async function generateMetadata({
@@ -45,14 +44,7 @@ export default async function HomePage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      {/* Mobile-first premium experience (<1024px) */}
-      <div className="lg:hidden">
-        <MobileLanding dict={dict} locale={locale} />
-      </div>
-      {/* Desktop composition (>=1024px), unchanged */}
-      <div className="hidden lg:block">
-        <HomeLanding dict={dict} locale={locale} />
-      </div>
+      <HomeLanding dict={dict} locale={locale} />
     </>
   );
 }
