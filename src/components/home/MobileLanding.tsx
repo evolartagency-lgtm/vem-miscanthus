@@ -111,31 +111,34 @@ export function MobileLanding({ dict, locale }: { dict: Dictionary; locale: Loca
           <div
             aria-hidden
             className="absolute inset-0"
-            style={{ background: "linear-gradient(180deg, rgba(248,247,242,.30) 0%, rgba(248,247,242,.08) 34%, rgba(7,19,14,.52) 60%, rgba(7,19,14,.88) 100%)" }}
+            style={{ background: "linear-gradient(180deg, rgba(248,247,242,.22) 0%, rgba(248,247,242,.05) 30%, rgba(7,19,14,.48) 52%, rgba(7,19,14,.62) 74%, rgba(248,247,242,.55) 92%, rgba(248,247,242,.95) 100%)" }}
           />
           <div className="relative px-6 pb-10 pt-28">
             <Reveal>
-              <h1 className="max-w-[10ch] font-sans text-[clamp(2.6rem,12vw,4.4rem)] font-semibold uppercase leading-[1.0] tracking-[-0.02em] text-[#15241d]">
+              <h1 className="max-w-[10ch] font-sans text-[clamp(2.6rem,12vw,4.4rem)] font-semibold uppercase leading-[1.0] tracking-[-0.02em] text-[#f3efe2] [text-shadow:0_2px_28px_rgba(7,19,14,.6)]">
                 {h.hero.titleLines[0]}
                 <br />
                 {h.hero.titleLines[1]}
               </h1>
-              <p className="mt-4 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#1d3b2a]/85">
+              <p className="mt-4 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#ead09f]">
                 Regenerative bioeconomy · Circular economy · Low-carbon industry
               </p>
-              <p className="mt-4 max-w-md text-[16px] leading-relaxed text-[#1f2d26]">{h.hero.lead}</p>
+              <p className="mt-4 max-w-md text-[16px] leading-relaxed text-[#f3efe2]/95 [text-shadow:0_1px_16px_rgba(7,19,14,.55)]">{h.hero.lead}</p>
               <div className="mt-7 max-w-[300px]">
-                <SceneCta href={p("/buy-rhizomes")}>{h.rhizomes.ctaPrimary}</SceneCta>
+                <Link href={p("/buy-rhizomes")} className="cta-modern flex min-h-[52px] w-full max-w-[300px] items-center justify-center gap-3 rounded-full bg-[linear-gradient(135deg,#ead09f,#c99f61)] px-7 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#221a0c] transition-transform hover:-translate-y-0.5">
+                {h.rhizomes.ctaPrimary}
+                <span aria-hidden>→</span>
+              </Link>
               </div>
 
               {/* integrated availability strip (existing counter content) */}
               <div className="mt-8 border border-white/25 bg-[rgba(20,39,30,.45)] px-6 py-5 backdrop-blur-sm">
-                <p className="font-sans text-[2.4rem] font-semibold leading-none text-[#221a0c]">{formatBatchCount(locale)}</p>
-                <p className="mt-1.5 text-lg font-medium uppercase leading-tight text-[#1c2521]">{h.rhizomes.counterTitle}</p>
-                <p className="mt-1.5 text-[11px] leading-snug text-[#1c2521]/80">{h.rhizomes.counterNote}</p>
+                <p className="font-sans text-[2.4rem] font-semibold leading-none text-[#ead09f]">{formatBatchCount(locale)}</p>
+                <p className="mt-1.5 text-lg font-medium uppercase leading-tight text-[#f3efe2]">{h.rhizomes.counterTitle}</p>
+                <p className="mt-1.5 text-[11px] leading-snug text-[#e9e4d5]/85">{h.rhizomes.counterNote}</p>
               </div>
 
-              <div aria-hidden className="mt-9 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#1f2d26]">
+              <div aria-hidden className="mt-9 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#e9e4d5]">
                 <span className="animate-drift-up text-base leading-none">↓</span>
                 {dict.mobile.scrollCue}
               </div>
