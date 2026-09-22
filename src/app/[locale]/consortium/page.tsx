@@ -8,7 +8,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
-  return (await resolvePage(params, "consortium")).metadata;
+  return (await resolvePage(params, "consortium", "/consortium")).metadata;
 }
 
 export default async function ConsortiumPage({
@@ -16,13 +16,13 @@ export default async function ConsortiumPage({
 }: {
   params: Promise<{ locale: string }>;
 }) {
-  const { locale, dict } = await resolvePage(params, "consortium");
+  const { locale, dict } = await resolvePage(params, "consortium", "/consortium");
   const d = dict.pages.consortium;
 
   return (
     <div className="min-h-svh bg-carbon">
       <SiteHeader dict={dict} locale={locale} />
-      <main>
+      <main id="main">
         <SceneSection
           num="01"
           eyebrow={dict.brand.name}

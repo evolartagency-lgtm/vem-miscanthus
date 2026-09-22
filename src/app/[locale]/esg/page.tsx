@@ -10,7 +10,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
-  return (await resolvePage(params, "esg")).metadata;
+  return (await resolvePage(params, "esg", "/esg")).metadata;
 }
 
 export default async function EsgPage({
@@ -18,13 +18,13 @@ export default async function EsgPage({
 }: {
   params: Promise<{ locale: string }>;
 }) {
-  const { locale, dict } = await resolvePage(params, "esg");
+  const { locale, dict } = await resolvePage(params, "esg", "/esg");
   const d = dict.pages.esg;
 
   return (
     <div className="min-h-svh bg-carbon">
       <SiteHeader dict={dict} locale={locale} />
-      <main>
+      <main id="main">
         <SceneSection
           num="01"
           eyebrow={dict.brand.name}

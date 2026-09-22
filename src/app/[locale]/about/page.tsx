@@ -8,7 +8,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
-  return (await resolvePage(params, "about")).metadata;
+  return (await resolvePage(params, "about", "/about")).metadata;
 }
 
 export default async function AboutPage({
@@ -16,13 +16,13 @@ export default async function AboutPage({
 }: {
   params: Promise<{ locale: string }>;
 }) {
-  const { locale, dict } = await resolvePage(params, "about");
+  const { locale, dict } = await resolvePage(params, "about", "/about");
   const d = dict.pages.about;
 
   return (
     <div className="min-h-svh bg-carbon">
       <SiteHeader dict={dict} locale={locale} />
-      <main>
+      <main id="main">
         <SceneSection
           num="01"
           eyebrow={dict.brand.name}

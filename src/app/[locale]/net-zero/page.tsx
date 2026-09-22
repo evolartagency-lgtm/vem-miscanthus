@@ -8,7 +8,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
-  return (await resolvePage(params, "netZero")).metadata;
+  return (await resolvePage(params, "netZero", "/net-zero")).metadata;
 }
 
 export default async function NetZeroPage({
@@ -16,13 +16,13 @@ export default async function NetZeroPage({
 }: {
   params: Promise<{ locale: string }>;
 }) {
-  const { locale, dict } = await resolvePage(params, "netZero");
+  const { locale, dict } = await resolvePage(params, "netZero", "/net-zero");
   const d = dict.pages.netZero;
 
   return (
     <div className="min-h-svh bg-carbon">
       <SiteHeader dict={dict} locale={locale} />
-      <main>
+      <main id="main">
         <SceneSection
           num="01"
           eyebrow={dict.brand.name}

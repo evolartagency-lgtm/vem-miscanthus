@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Image from "next/image";
 import { Reveal, CtaLink } from "@/components/ui/Reveal";
 import { IconCheckCircle } from "@/components/ui/icons";
 
@@ -68,9 +69,19 @@ export function SceneSection({
     >
       <div
         aria-hidden
-        className={`absolute inset-0 bg-cover brightness-[.98] saturate-[1.02] contrast-[1.02] transition-transform duration-[1800ms] ease-out motion-safe:scale-[1.015] ${noFlip ? "no-rtl-flip" : ""}`}
-        style={{ backgroundImage: `url(${image})`, backgroundPosition: imagePosition }}
-      />
+        className={`photo-layer absolute inset-0 overflow-hidden ${noFlip ? "no-rtl-flip" : ""}`}
+      >
+        <Image
+          src={image}
+          alt=""
+          fill
+          priority={num === "01"}
+          loading={num === "01" ? undefined : "lazy"}
+          sizes="100vw"
+          className="object-cover transition-transform duration-[1800ms] ease-out motion-safe:scale-[1.015]"
+          style={{ objectPosition: imagePosition }}
+        />
+      </div>
       <div
         aria-hidden
         className="scene-scrim absolute inset-0"

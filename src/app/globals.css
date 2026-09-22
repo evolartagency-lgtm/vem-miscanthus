@@ -136,7 +136,8 @@ html[dir="rtl"] .hero-availability ol li {
    Uses the independent `scale` property so it never conflicts with the
    transform-based hover/zoom effects on the same layers.
    Photos containing screens or readable text opt out via .no-rtl-flip. */
-html[dir="rtl"] div[aria-hidden].bg-cover:not(.no-rtl-flip) {
+html[dir="rtl"] div[aria-hidden].bg-cover:not(.no-rtl-flip),
+html[dir="rtl"] .photo-layer:not(.no-rtl-flip) {
   scale: -1 1;
 }
 
@@ -499,10 +500,6 @@ html[dir="rtl"] .hero-scene > div:nth-child(2) {
   .continuous-opening {
     position: relative;
     background-color: #101b15;
-    background-image: url("/images/hero-roots-continuous-v2.png");
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-size: 100% auto;
   }
 
   .continuous-opening::before {
@@ -518,25 +515,6 @@ html[dir="rtl"] .hero-scene > div:nth-child(2) {
     background: linear-gradient(270deg, rgba(248,247,242,.99) 0%, rgba(248,247,242,.93) 38%, rgba(248,247,242,.35) 63%, rgba(248,247,242,.04) 86%);
   }
 
-  /* Desktop "continuous opening": the hero photo lives on the wrapper itself
-     (inner photo divs are disabled below), so mirror it via a dedicated layer. */
-  html[dir="rtl"] .continuous-opening {
-    background-image: none;
-  }
-
-  html[dir="rtl"] .continuous-opening::after {
-    content: "";
-    position: absolute;
-    z-index: 0;
-    inset: 0;
-    pointer-events: none;
-    background-image: url("/images/hero-roots-continuous-v2.png");
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-size: 100% auto;
-    scale: -1 1;
-  }
-
   .continuous-opening .hero-scene,
   .continuous-opening #section-02 {
     background-color: transparent;
@@ -544,7 +522,7 @@ html[dir="rtl"] .hero-scene > div:nth-child(2) {
 
   .continuous-opening .hero-scene > div:first-child,
   .continuous-opening #section-02 > div:first-child {
-    background-image: none !important;
+    display: none;
   }
 
   .continuous-opening #section-02 {
@@ -750,5 +728,37 @@ html[dir="rtl"] .hero-scene > div:nth-child(2) {
   main > section:nth-last-of-type(1) {
     min-height: 680px;
     padding-block: 5rem;
+  }
+}
+
+/* Accessibility: visible keyboard focus everywhere. */
+:focus-visible {
+  outline: 2px solid var(--color-biomass);
+  outline-offset: 3px;
+}
+
+/* Accessibility: honor prefers-reduced-motion for decorative motion. */
+@media (prefers-reduced-motion: reduce) {
+  .scene-section > div:first-child,
+  .photo-layer,
+  .photo-layer > img {
+    transform: none !important;
+    scale: 1 !important;
+    transition: none !important;
+  }
+
+  html[dir="rtl"] .photo-layer:not(.no-rtl-flip) {
+    scale: -1 1 !important;
+  }
+
+  .cta-modern::before {
+    display: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }

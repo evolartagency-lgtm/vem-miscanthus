@@ -3,6 +3,7 @@ import Link from "next/link";
 import { SiteHeader, SiteFooter } from "@/components/layout/SiteChrome";
 import { getDictionary, type Locale } from "@/data/dictionaries";
 import { isLocale, locales } from "@/i18n/config";
+import { buildMetadata } from "@/lib/page-meta";
 import {
   FUNNELS,
   FUNNEL_CATEGORIES,
@@ -25,7 +26,10 @@ export async function generateMetadata({
   const { locale: raw } = await params;
   const locale: Locale = isLocale(raw) ? raw : "en";
   const dict = await getDictionary(locale);
-  return { title: dict.funnels.metaTitle, description: dict.funnels.metaDescription };
+  return buildMetadata(locale, "/directions", {
+    title: dict.funnels.metaTitle,
+    description: dict.funnels.metaDescription,
+  });
 }
 
 export default async function FunnelsCatalogPage({
@@ -42,7 +46,7 @@ export default async function FunnelsCatalogPage({
   return (
     <div className="min-h-svh bg-carbon">
       <SiteHeader dict={dict} locale={locale} />
-      <main className="inner-page">
+      <main id="main" className="inner-page">
         <section className="relative overflow-hidden px-6 pb-10 pt-32 sm:px-10 lg:px-14">
           <div aria-hidden className="absolute inset-0 bg-cover bg-center opacity-[.08]" style={{ backgroundImage: "url(/images/router-field.png)" }} />
           <div className="relative mx-auto max-w-[1440px]">

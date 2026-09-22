@@ -8,7 +8,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
-  return (await resolvePage(params, "horizonGrants")).metadata;
+  return (await resolvePage(params, "horizonGrants", "/horizon-grants")).metadata;
 }
 
 export default async function HorizonGrantsPage({
@@ -16,13 +16,13 @@ export default async function HorizonGrantsPage({
 }: {
   params: Promise<{ locale: string }>;
 }) {
-  const { locale, dict } = await resolvePage(params, "horizonGrants");
+  const { locale, dict } = await resolvePage(params, "horizonGrants", "/horizon-grants");
   const d = dict.pages.horizonGrants;
 
   return (
     <div className="min-h-svh bg-carbon">
       <SiteHeader dict={dict} locale={locale} />
-      <main>
+      <main id="main">
         <SceneSection
           num="01"
           eyebrow={dict.brand.name}

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Dictionary, Locale } from "@/data/dictionaries";
 import { SiteHeader, SiteFooter } from "@/components/layout/SiteChrome";
 import { SceneSection, TickList } from "@/components/layout/SceneSection";
@@ -26,7 +27,6 @@ export function HomeLanding({ dict, locale }: { dict: Dictionary; locale: Locale
   const p = (path: string) => `/${locale}${path}`;
   const h = dict.home;
   const pages = dict.pages;
-  const siteLabelUnused = (_href: string) => "";
   const ep = dict.nav.entryPoints;
   const routes = [
     ["01", ep[0]?.label ?? "Ризоми", "/buy-rhizomes"],
@@ -39,11 +39,16 @@ export function HomeLanding({ dict, locale }: { dict: Dictionary; locale: Locale
     ["08", ep[7]?.label ?? "Міжнародний партнер", "/consortium"],
   ] as const;
 
-  return <main className="min-h-svh bg-carbon">
+  return <main id="main" className="min-h-svh bg-carbon">
     <SiteHeader dict={dict} locale={locale} />
     <div className="continuous-opening">
+    <div aria-hidden className="continuous-photo photo-layer absolute inset-0 z-0 hidden overflow-hidden lg:block">
+      <Image src="/images/hero-roots-continuous-v2.png" alt="" fill priority sizes="100vw" className="object-cover object-top" />
+    </div>
     <section className="hero-scene relative flex min-h-svh items-end overflow-hidden pt-24">
-      <div aria-hidden className="absolute inset-0 bg-cover brightness-[.98] saturate-[1.1]" style={{ backgroundImage: "url(/images/hero-roots-continuous-v2.png)", backgroundPosition: "center top" }} />
+      <div aria-hidden className="photo-layer absolute inset-0 overflow-hidden lg:hidden">
+        <Image src="/images/hero-roots-continuous-v2.png" alt="" fill priority sizes="100vw" className="object-cover" style={{ objectPosition: "66% top" }} />
+      </div>
       <div aria-hidden className="hero-scrim absolute inset-0" />
       <div aria-hidden className="scene-grain absolute inset-0 opacity-30" />
       <div className="relative mx-auto flex w-full max-w-[1440px] flex-col justify-end px-6 pb-8 sm:px-10 lg:px-14 lg:pb-10">

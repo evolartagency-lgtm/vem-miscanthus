@@ -8,7 +8,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
-  return (await resolvePage(params, "memorandums")).metadata;
+  return (await resolvePage(params, "memorandums", "/memorandums")).metadata;
 }
 
 export default async function MemorandumsPage({
@@ -16,13 +16,13 @@ export default async function MemorandumsPage({
 }: {
   params: Promise<{ locale: string }>;
 }) {
-  const { locale, dict } = await resolvePage(params, "memorandums");
+  const { locale, dict } = await resolvePage(params, "memorandums", "/memorandums");
   const d = dict.pages.memorandums;
 
   return (
     <div className="min-h-svh bg-carbon">
       <SiteHeader dict={dict} locale={locale} />
-      <main>
+      <main id="main">
         <SceneSection
           num="01"
           eyebrow={dict.brand.name}

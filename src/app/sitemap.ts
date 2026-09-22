@@ -27,17 +27,19 @@ const routes = [
   "/contact",
 ];
 
-const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://vem-miscanthus.com";
+const BASE = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://vem-miscanthus.com").replace(/\/$/, "");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
   for (const route of routes) {
-    const languages = Object.fromEntries(
-      locales.map((l) => [l, `${BASE}/${l}${route === "" ? "" : route}`])
-    );
+    const languages: Record<string, string> = {};
+    for (const l of locales) {
+      languages[l] = `${BASE}/${l}${route}`;
+    }
+    languages["x-default"] = `${BASE}/en${route}`;
     for (const locale of locales) {
       entries.push({
-        url: `${BASE}/${locale}${route === "" ? "" : route}`,
+        url: `${BASE}/${locale}${route}`,
         lastModified: new Date(),
         changeFrequency: "monthly",
         priority: route === "" ? 1 : 0.7,

@@ -6,6 +6,7 @@ import { LeadForm, type FormConfig } from "@/components/forms/LeadForm";
 import { RhizomeOrder } from "@/components/forms/RhizomeOrder";
 import { getDictionary, type Locale } from "@/data/dictionaries";
 import { isLocale } from "@/i18n/config";
+import { buildMetadata } from "@/lib/page-meta";
 import {
   FUNNELS,
   FUNNEL_CATEGORIES,
@@ -29,10 +30,26 @@ export async function generateMetadata({
   const dict = await getDictionary(locale);
   const funnel = getFunnel(slug);
   if (!funnel) return {};
-  return {
+  return buildMetadata(locale, `/directions/${slug}`, {
     title: `${funnelTitle(funnel, locale)} — ${dict.funnels.funnelLabel} ${String(funnel.n).padStart(2, "0")}`,
     description: `${funnelSteps(funnel, locale).join(" → ")}. ${dict.funnels.metaDescription}`,
-  };
+  });
+}
+
+/** BreadcrumbList — Головна → Напрями → Напрям. */
+function BreadcrumbSchema({ locale, slug, name }: { locale: Locale; slug: string; name: string }) {
+  const base = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://vem-miscanthus.com").replace(/\/$/, "");
+  const items = [
+    { "@type": "ListItem", position: 1, name: "VEM", item: `${base}/${locale}` },
+    { "@type": "ListItem", position: 2, name: locale === "uk" ? "Напрями" : locale === "he" ? "כיוונים" : "Directions", item: `${base}/${locale}/directions` },
+    { "@type": "ListItem", position: 3, name, item: `${base}/${locale}/directions/${slug}` },
+  ];
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: items }) }}
+    />
+  );
 }
 
 export default async function FunnelPage({
@@ -71,7 +88,8 @@ export default async function FunnelPage({
   return (
     <div className="min-h-svh bg-carbon">
       <SiteHeader dict={dict} locale={locale} />
-      <main className="inner-page">
+      <BreadcrumbSchema locale={locale} slug={funnel.slug} name={funnelTitle(funnel, locale)} />
+      <main id="main" className="inner-page">
         <section className="relative overflow-hidden px-6 pb-12 pt-32 sm:px-10 lg:px-14">
           <div aria-hidden className="absolute inset-0 bg-cover bg-center opacity-[.07]" style={{ backgroundImage: "url(/images/hero-field.png)" }} />
           <div className="relative mx-auto max-w-[1440px]">
@@ -95,7 +113,7 @@ export default async function FunnelPage({
 
         <section aria-label={f.stepsLabel} className="border-t border-black/10 bg-[#f8f7f2] px-6 py-14 sm:px-10 lg:px-14">
           <div className="mx-auto max-w-[1440px]">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.26em] text-[#315b48]">{f.stepsLabel}</p>
+            <h2 className="text-[11px] font-semibold uppercase tracking-[0.26em] text-[#315b48]">{f.stepsLabel}</h2>
             <ol className="mt-8 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
               {steps.map((step, i) => (
                 <li key={step} className="flex items-start gap-4 border border-black/10 bg-white/70 p-5 backdrop-blur-sm">

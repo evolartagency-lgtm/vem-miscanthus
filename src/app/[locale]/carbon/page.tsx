@@ -10,7 +10,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
-  return (await resolvePage(params, "carbon")).metadata;
+  return (await resolvePage(params, "carbon", "/carbon")).metadata;
 }
 
 export default async function CarbonPage({
@@ -18,13 +18,13 @@ export default async function CarbonPage({
 }: {
   params: Promise<{ locale: string }>;
 }) {
-  const { locale, dict } = await resolvePage(params, "carbon");
+  const { locale, dict } = await resolvePage(params, "carbon", "/carbon");
   const d = dict.pages.carbon;
 
   return (
     <div className="min-h-svh bg-carbon">
       <SiteHeader dict={dict} locale={locale} />
-      <main>
+      <main id="main">
         <SceneSection
           num="01"
           eyebrow={dict.brand.name}

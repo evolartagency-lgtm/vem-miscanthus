@@ -11,7 +11,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
-  return (await resolvePage(params, "buyRhizomes")).metadata;
+  return (await resolvePage(params, "buyRhizomes", "/buy-rhizomes")).metadata;
 }
 
 export default async function BuyRhizomesPage({
@@ -19,14 +19,14 @@ export default async function BuyRhizomesPage({
 }: {
   params: Promise<{ locale: string }>;
 }) {
-  const { locale, dict } = await resolvePage(params, "buyRhizomes");
+  const { locale, dict } = await resolvePage(params, "buyRhizomes", "/buy-rhizomes");
   const d = dict.pages.buyRhizomes;
   const o = dict.order;
 
   return (
     <div className="min-h-svh bg-carbon">
       <SiteHeader dict={dict} locale={locale} />
-      <main>
+      <main id="main">
         <SceneSection
           num="01"
           eyebrow={dict.brand.name}

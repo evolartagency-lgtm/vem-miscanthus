@@ -10,7 +10,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
-  return (await resolvePage(params, "contact")).metadata;
+  return (await resolvePage(params, "contact", "/contact")).metadata;
 }
 
 const FORM_BY_QUERY: Record<string, FormKey> = {
@@ -38,7 +38,7 @@ export default async function ContactPage({
   params: Promise<{ locale: string }>;
   searchParams: Promise<{ form?: string }>;
 }) {
-  const { locale, dict } = await resolvePage(params, "contact");
+  const { locale, dict } = await resolvePage(params, "contact", "/contact");
   const { form } = await searchParams;
   const key: FormKey = form ? (FORM_BY_QUERY[form] ?? "project") : "project";
   const cfg = getFormConfigs(dict)[key];
@@ -46,7 +46,7 @@ export default async function ContactPage({
   return (
     <div className="min-h-svh bg-carbon">
       <SiteHeader dict={dict} locale={locale} />
-      <main>
+      <main id="main">
         <SceneSection
           num="01"
           eyebrow={dict.brand.name}
