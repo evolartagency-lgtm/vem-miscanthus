@@ -134,8 +134,9 @@ html[dir="rtl"] .hero-availability ol li {
 
 /* Hebrew (RTL): mirror decorative photography so compositions read right-to-left.
    Uses the independent `scale` property so it never conflicts with the
-   transform-based hover/zoom effects on the same layers. */
-html[dir="rtl"] div[aria-hidden].bg-cover {
+   transform-based hover/zoom effects on the same layers.
+   Photos containing screens or readable text opt out via .no-rtl-flip. */
+html[dir="rtl"] div[aria-hidden].bg-cover:not(.no-rtl-flip) {
   scale: -1 1;
 }
 

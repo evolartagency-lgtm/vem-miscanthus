@@ -39,6 +39,7 @@ export function SceneSection({
   titleUppercase = true,
   cornerLeft,
   cornerRight,
+  noFlip = false,
 }: {
   num: string;
   eyebrow: string;
@@ -55,6 +56,8 @@ export function SceneSection({
   titleUppercase?: boolean;
   cornerLeft?: string;
   cornerRight?: string;
+  /** Opt out of RTL mirroring — required for photos containing screens or readable text. */
+  noFlip?: boolean;
 }) {
   const Title = titleAs;
   const displayTitle = title.replace(/\./g, "");
@@ -65,7 +68,7 @@ export function SceneSection({
     >
       <div
         aria-hidden
-        className="absolute inset-0 bg-cover brightness-[.98] saturate-[1.02] contrast-[1.02] transition-transform duration-[1800ms] ease-out motion-safe:scale-[1.015]"
+        className={`absolute inset-0 bg-cover brightness-[.98] saturate-[1.02] contrast-[1.02] transition-transform duration-[1800ms] ease-out motion-safe:scale-[1.015] ${noFlip ? "no-rtl-flip" : ""}`}
         style={{ backgroundImage: `url(${image})`, backgroundPosition: imagePosition }}
       />
       <div

@@ -52,6 +52,7 @@ export default async function TechnologiesPage({
           lead={dict.slots.certifications.charAt(0) + dict.slots.certifications.slice(1).toLowerCase()}
           image="/images/esg-tablet-v2.png"
           imagePosition="65% center"
+          noFlip
           compact
         />
       </main>

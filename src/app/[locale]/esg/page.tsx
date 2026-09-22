@@ -32,6 +32,7 @@ export default async function EsgPage({
           lead={d.lead}
           image="/images/esg-tablet-v2.png"
           imagePosition="65% center"
+          noFlip
           titleAs="h1"
         >
           <TickList items={d.stack.slice(0, 6)} />
