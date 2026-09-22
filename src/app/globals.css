@@ -433,6 +433,7 @@ html[dir="rtl"] .hero-scene > div:nth-child(2) {
 }
 
 .hero-scene p { color: #3d4b44; }
+.hero-scene .grid > div:first-child p.text-biomass { color: #8a6a2f; }
 .hero-scene .hero-availability p:first-child { color: #f0d394; }
 .hero-scene .hero-availability p:last-child { color: #fff; }
 .hero-scene nav { display: none; }
@@ -600,7 +601,12 @@ html[dir="rtl"] .hero-scene > div:nth-child(2) {
   }
 
   .hero-scene > div:nth-child(2) {
-    background: linear-gradient(180deg, rgba(248,247,242,.72) 0%, rgba(248,247,242,.58) 44%, rgba(248,247,242,.22) 70%, transparent 100%);
+    background: linear-gradient(180deg, rgba(248,247,242,.97) 0%, rgba(248,247,242,.93) 45%, rgba(248,247,242,.72) 72%, rgba(248,247,242,.34) 100%);
+  }
+
+  .hero-scene p,
+  .hero-scene .hero-availability {
+    color: #1f2d26;
   }
 
   .hero-scene > .relative {
@@ -838,4 +844,17 @@ html[dir="rtl"] .hero-scene > div:nth-child(2) {
   .scene-section > .relative {
     padding: 4rem 1.15rem 4.25rem;
   }
+}
+
+/* Hero secondary CTAs: light variant is invisible on the light hero scrim — use dark. */
+.hero-scene .mt-8.flex a:not(:first-child) {
+  border-color: rgba(23, 60, 44, 0.4);
+  background: rgba(255, 255, 255, 0.6);
+  color: #1d3b2a;
+}
+
+.hero-scene .mt-8.flex a:not(:first-child):hover {
+  border-color: #a2762e;
+  background: rgba(162, 118, 46, 0.14);
+  color: #1d3b2a;
 }
