@@ -722,13 +722,23 @@ html[dir="rtl"] .hero-scene > div:nth-child(2) {
     padding: 5rem 1rem;
   }
 
+  /* Route cards: single full-width row cards — icon left, title + text, arrow right. */
   main > section:nth-last-of-type(2) .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
+    gap: .6rem;
   }
 
   main > section:nth-last-of-type(2) .grid a {
-    min-height: 132px;
-    padding: 1rem .7rem;
+    min-height: 0;
+    padding: .9rem 1rem;
+  }
+
+  main > section:nth-last-of-type(2) .grid a > span:last-of-type {
+    display: none;
+  }
+
+  main > section:nth-last-of-type(2) .grid a h3 {
+    font-size: 12.5px;
   }
 
   main > section:nth-last-of-type(1) {
