@@ -1,6 +1,7 @@
 /** Canonical lead types aligned with CRM pipeline stages. */
 export const LEAD_TYPES = [
   "reserve_rhizomes",
+  "rhizome_order",
   "commercial_offer",
   "planting_calculation",
   "investment_case",
@@ -37,6 +38,11 @@ export interface LeadPayload {
   requestedProduct?: string;
   budget?: string;
   comment?: string;
+  /** Rhizome order wizard extras (type = rhizome_order). */
+  quantity?: number;
+  regionType?: string;
+  deliveryMethod?: string;
+  orderTotal?: string;
   locale: string;
   source: string;
 }
@@ -48,6 +54,7 @@ export interface LeadResponse {
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const STRINGS_500 = ["comment", "requestedProduct", "budget"] as const;
+const STRINGS_200 = ["company", "country", "plantingSeason", "regionType", "deliveryMethod", "orderTotal"] as const;
 
 export function validateLead(body: unknown):
   | { ok: true; data: LeadPayload }
@@ -79,7 +86,15 @@ export function validateLead(body: unknown):
     }
   }
 
-  for (const key of ["company", "country", "plantingSeason"] as const) {
+  let quantity: number | undefined;
+  if (b.quantity !== undefined && b.quantity !== "") {
+    quantity = Number(b.quantity);
+    if (!Number.isFinite(quantity) || quantity < 0 || quantity > 10_000_000) {
+      errors.quantity = "Invalid quantity";
+    }
+  }
+
+  for (const key of STRINGS_200) {
     const v = b[key];
     if (typeof v === "string" && v.length > 200) {
       errors[key] = "Value is too long";
@@ -112,6 +127,10 @@ export function validateLead(body: unknown):
       requestedProduct: str(b.requestedProduct),
       budget: str(b.budget),
       comment: str(b.comment),
+      quantity,
+      regionType: str(b.regionType),
+      deliveryMethod: str(b.deliveryMethod),
+      orderTotal: str(b.orderTotal),
       locale: str(b.locale) || "en",
       source: str(b.source) || "website",
     },

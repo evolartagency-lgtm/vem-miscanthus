@@ -3,6 +3,7 @@ import type { Dictionary, Locale } from "@/data/dictionaries";
 import { SiteHeader, SiteFooter } from "@/components/layout/SiteChrome";
 import { SceneSection, TickList } from "@/components/layout/SceneSection";
 import { Reveal, CtaLink } from "@/components/ui/Reveal";
+import { formatBatchCount } from "@/data/pricing";
 import { IconSprout, IconHarvest, IconFactory, IconEarth, IconSoil, IconWater, IconGrass, IconSheaf, IconGear, IconCarbonLeaf, IconCoins, IconPlanet, IconCommunity, IconCycle, IconFuture } from "@/components/ui/icons";
 
 function PathIcon({ index, className = "h-8 w-8" }: { index: number; className?: string }) {
@@ -43,18 +44,36 @@ export function HomeLanding({ dict, locale }: { dict: Dictionary; locale: Locale
     <div className="continuous-opening">
     <section className="hero-scene relative flex min-h-svh items-end overflow-hidden pt-24">
       <div aria-hidden className="absolute inset-0 bg-cover brightness-[.98] saturate-[1.1]" style={{ backgroundImage: "url(/images/hero-roots-continuous-v2.png)", backgroundPosition: "center top" }} />
-      <div aria-hidden className="absolute inset-0 bg-[linear-gradient(90deg,rgba(245,242,234,.92)_0%,rgba(245,242,234,.5)_38%,rgba(245,242,234,0)_64%),linear-gradient(0deg,rgba(245,242,234,.85)_0%,transparent_40%,rgba(245,242,234,.15)_100%)]" />
+      <div aria-hidden className="hero-scrim absolute inset-0" />
       <div aria-hidden className="scene-grain absolute inset-0 opacity-30" />
       <div className="relative mx-auto flex w-full max-w-[1440px] flex-col justify-end px-6 pb-8 sm:px-10 lg:px-14 lg:pb-10">
-        <div className="grid items-end gap-12 lg:grid-cols-[1fr_380px]">
-          <Reveal><div className="flex items-center gap-4 text-biomass"><span className="font-sans text-xl font-light">01</span><span className="h-px w-9 bg-biomass" /></div><h1 className="mt-6 max-w-5xl font-sans text-[clamp(3.2rem,7.3vw,7.7rem)] font-extralight uppercase leading-[0.95] tracking-[-0.02em] text-stone-50">{h.hero.titleLines[0]}<br /><span className="text-stone-100">{h.hero.titleLines[1]}</span></h1><p className="mt-7 text-[10px] font-semibold tracking-[0.18em] text-biomass uppercase sm:whitespace-nowrap sm:text-[11px] sm:tracking-[0.26em]">Regenerative bioeconomy · Circular economy · Low-carbon industry</p><p className="mt-5 max-w-lg text-[15px] leading-7 text-stone-300">{h.hero.lead}</p><div className="mt-8 flex flex-wrap gap-3"><CtaLink href={p("/buy-rhizomes")}>{h.rhizomes.ctaPrimary}<span aria-hidden>→</span></CtaLink><CtaLink href={p("/about")} variant="outline">{locale === "uk" ? "Про нас" : "About us"}</CtaLink></div></Reveal>
-          <Reveal delay={0.18} className="hero-availability hidden border-l border-[#d5b36d] bg-[linear-gradient(90deg,rgba(5,17,12,.58),rgba(5,17,12,.08))] px-8 py-7 backdrop-blur-[2px] lg:block"><p className="font-serif text-5xl font-normal leading-none text-[#f0d394] drop-shadow-[0_2px_16px_rgba(0,0,0,.8)]">30 MILLION</p><p className="mt-3 font-serif text-3xl font-normal uppercase leading-[1.05] text-white drop-shadow-[0_2px_16px_rgba(0,0,0,.9)]">Rhizomes<br />available now</p></Reveal>
+        <div className="grid items-end gap-12 lg:grid-cols-[1fr_400px]">
+          <Reveal>
+            <div className="mb-9 inline-flex items-center gap-4 border border-white/25 bg-black/25 px-5 py-4 backdrop-blur-sm">
+              <span className="font-serif text-[44px] font-normal leading-none tracking-[0.06em] text-stone-50 sm:text-5xl">VEM</span>
+              <span aria-hidden className="h-11 w-px bg-white/30" />
+              <span className="text-[9px] font-semibold uppercase leading-[1.5] tracking-[0.24em] text-stone-200 sm:text-[10px]">Vital Energy<br />Miscanthus</span>
+            </div>
+            <h1 className="max-w-5xl font-sans text-[clamp(3.2rem,7.3vw,7.7rem)] font-extralight uppercase leading-[0.95] tracking-[-0.02em] text-stone-50">{h.hero.titleLines[0]}<br /><span className="text-stone-100">{h.hero.titleLines[1]}</span></h1><p className="mt-7 text-[10px] font-semibold tracking-[0.18em] text-biomass uppercase sm:whitespace-nowrap sm:text-[11px] sm:tracking-[0.26em]">Regenerative bioeconomy · Circular economy · Low-carbon industry</p><p className="mt-5 max-w-lg text-[15px] leading-7 text-stone-300">{h.hero.lead}</p><div className="mt-8 flex flex-wrap gap-3"><CtaLink href={p("/buy-rhizomes")}>{h.rhizomes.ctaPrimary}<span aria-hidden>→</span></CtaLink><CtaLink href={p("/funnels")} variant="outline">{dict.funnels.navLabel}</CtaLink><CtaLink href={p("/about")} variant="outline">{locale === "uk" ? "Про нас" : locale === "he" ? "עלינו" : "About us"}</CtaLink></div></Reveal>
+          <Reveal delay={0.18} className="hero-availability border-l border-[#d5b36d] bg-[linear-gradient(90deg,rgba(5,17,12,.62),rgba(5,17,12,.12))] px-7 py-7 backdrop-blur-[2px]">
+            <p className="font-serif text-5xl font-normal leading-none text-[#f0d394] drop-shadow-[0_2px_16px_rgba(0,0,0,.8)]">{formatBatchCount(locale)}</p>
+            <p className="mt-3 font-serif text-2xl font-normal uppercase leading-[1.1] text-white drop-shadow-[0_2px_16px_rgba(0,0,0,.9)]">{h.rhizomes.counterTitle}</p>
+            <p className="mt-3 text-[11px] font-medium leading-5 text-stone-200">{h.rhizomes.counterNote}</p>
+            <ol aria-label={dict.order.steps.join(" → ")} className="mt-5 flex flex-wrap gap-1.5">
+              {dict.order.steps.map((s, i) => (
+                <li key={s} className="rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-[10px] font-semibold text-stone-100">{i + 1}. {s}</li>
+              ))}
+            </ol>
+            <Link href={p("/buy-rhizomes")} className="cta-modern mt-6 inline-block rounded-full border border-biomass/80 bg-[linear-gradient(135deg,#ead09f,#c99f61)] px-7 py-3.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#221a0c] shadow-[0_10px_34px_rgba(164,118,47,.28)] transition-all hover:-translate-y-0.5">
+              {h.rhizomes.ctaPrimary} <span aria-hidden>→</span>
+            </Link>
+          </Reveal>
         </div>
         <Reveal delay={0.3} className="mt-10"><nav aria-label="Primary paths" className="grid border border-black/10 bg-white/60 backdrop-blur-sm sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-8 lg:bg-black/20 lg:border-white/10">{routes.map(([num, label, href], i) => <Link key={href} href={p(href)} className="group flex min-h-24 flex-col justify-center gap-3 border-b border-r border-black/10 px-4 py-3 lg:border-white/10 transition-colors hover:bg-biomass hover:text-[#1c1408]"><span className="text-biomass group-hover:text-[#1c1408]/70"><PathIcon index={i} className="h-6 w-6" /></span><span className="text-[10px] text-biomass/80 group-hover:text-[#1c1408]/60">{num}</span><span className="text-[11px] font-semibold leading-4">{label}</span></Link>)}</nav></Reveal>
       </div>
     </section>
 
-    <SceneSection num="02" eyebrow="Міскантус: від землі до системи" title={locale === "uk" ? "Від землі до системи" : "From soil to system"} lead={pages.about.lead} image="/images/hero-roots-continuous-v2.png" imagePosition="center bottom"><p className="max-w-lg border-l border-biomass/60 pl-5 text-sm leading-6 text-stone-600">{dict.brand.promise}. {pages.technologies.lead}</p></SceneSection>
+    <SceneSection num="02" eyebrow={locale === "he" ? "מיסקנטוס: מהקרקע למערכת" : "Міскантус: від землі до системи"} title={locale === "uk" ? "Від землі до системи" : locale === "he" ? "מהקרקע למערכת" : "From soil to system"} lead={pages.about.lead} image="/images/hero-roots-continuous-v2.png" imagePosition="center bottom"><p className="max-w-lg border-l border-biomass/60 pl-5 text-sm leading-6 text-stone-600">{dict.brand.promise}. {pages.technologies.lead}</p></SceneSection>
     </div>
     <SceneSection num="03" eyebrow={pages.agronomicSupport.title} title={pages.agronomicSupport.subtitle} lead={pages.agronomicSupport.lead} image="/images/agronomists-v2.png" imagePosition="66% center" cta={dict.forms.configs.agronomic.submit} href={p("/agronomic-support")}><TickList items={pages.agronomicSupport.tools} /></SceneSection>
     <SceneSection num="04" eyebrow={locale === "uk" ? "Механізація повного циклу" : "Full-cycle mechanisation"} title={locale === "uk" ? "Підбір обладнання" : "Equipment selection"} lead={pages.equipment.lead} image="/images/equipment-harvester-v2.png" imagePosition="75% center" cta={dict.forms.configs.equipment.submit} href={p("/equipment")} wide cornerLeft={h.hero.cornerTagline} cornerRight={`${h.final.big[0]}. ${h.final.big[1]}.`}><p className="text-[15px] font-medium text-stone-700">{pages.equipment.subtitle}</p><div className="mt-6 grid gap-3 sm:grid-cols-3">{[{t: pages.equipment.plantingTitle, x: pages.equipment.planting, I: IconSprout}, {t: pages.equipment.harvestTitle, x: pages.equipment.harvest, I: IconHarvest}, {t: pages.equipment.processingTitle, x: pages.equipment.processing, I: IconFactory}].map((group) => <div key={group.t} className="border border-black/10 bg-white/60 p-6 backdrop-blur-sm"><div className="flex items-center gap-4"><group.I className="h-8 w-8 shrink-0 text-biomass" aria-hidden /><h3 className="text-[12px] font-bold uppercase leading-tight tracking-[0.12em] text-biomass">{group.t}</h3></div><ul className="mt-5 flex flex-col gap-2.5">{group.x.map((x) => <li key={x} className="text-[13px] leading-snug text-stone-700">{x}</li>)}</ul></div>)}</div></SceneSection>

@@ -1,10 +1,11 @@
 import Link from "next/link";
 import type { Dictionary, Locale } from "@/data/dictionaries";
 import { MobileMenu } from "@/components/layout/MobileMenu";
+import { LocaleSwitcher } from "@/components/layout/LocaleSwitcher";
 
 export function SiteHeader({ dict, locale }: { dict: Dictionary; locale: Locale }) {
   const p = (path: string) => `/${locale}${path}`;
-  const homeItem = { href: "/", label: locale === "uk" ? "Головна" : "Home" };
+  const homeItem = { href: "/", label: locale === "uk" ? "Головна" : locale === "he" ? "ראשי" : "Home" };
   const desktopItems = [homeItem, ...dict.nav.site.slice(0, 5)];
   const mobileItems = [homeItem, ...dict.nav.site.slice(0, 6)];
   return (
@@ -26,7 +27,7 @@ export function SiteHeader({ dict, locale }: { dict: Dictionary; locale: Locale 
           ))}
         </nav>
         <div className="hidden items-center gap-4 lg:flex">
-          <Link href={locale === "uk" ? "/en" : "/uk"} className="text-[10px] uppercase tracking-[.18em] text-[#10271e] hover:text-biomass">{locale === "uk" ? "EN" : "UA"}</Link>
+          <LocaleSwitcher current={locale} />
           <Link
             href={p("/contact")}
             className="cta-modern rounded-full border border-biomass/60 bg-biomass/10 px-5 py-2.5 text-[10px] font-semibold tracking-[0.12em] text-biomass uppercase backdrop-blur-md transition-all hover:-translate-y-0.5 hover:bg-biomass hover:text-[#1c1408]"
@@ -75,7 +76,7 @@ export function SiteFooter({ dict, locale }: { dict: Dictionary; locale: Locale 
             © {new Date().getFullYear()} {dict.brand.name}
           </p>
           <p className="text-[11px] tracking-[0.08em] text-ash/70">
-            {locale === "uk" ? "/uk" : "/en"} · {locale.toUpperCase()}
+            /{locale} · {locale.toUpperCase()}
           </p>
         </div>
       </div>

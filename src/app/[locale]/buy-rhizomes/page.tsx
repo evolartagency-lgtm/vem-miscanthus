@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { SceneSection, TickList, Panel } from "@/components/layout/SceneSection";
+import { SceneSection, TickList } from "@/components/layout/SceneSection";
 import { SiteHeader, SiteFooter } from "@/components/layout/SiteChrome";
-import { LeadForm } from "@/components/forms/LeadForm";
+import { RhizomeOrder } from "@/components/forms/RhizomeOrder";
 import { PlantingCalculator } from "@/components/forms/PlantingCalculator";
-import { getFormConfigs } from "@/data/forms";
 import { resolvePage } from "@/lib/page-meta";
+import { RHIZOME_BATCH, formatBatchCount } from "@/data/pricing";
 
 export async function generateMetadata({
   params,
@@ -21,7 +21,7 @@ export default async function BuyRhizomesPage({
 }) {
   const { locale, dict } = await resolvePage(params, "buyRhizomes");
   const d = dict.pages.buyRhizomes;
-  const p = (path: string) => `/${locale}${path}`;
+  const o = dict.order;
 
   return (
     <div className="min-h-svh bg-carbon">
@@ -35,44 +35,46 @@ export default async function BuyRhizomesPage({
           image="/images/hero-field.png"
           imagePosition="62% center"
           titleAs="h1"
-          cta={dict.home.rhizomes.ctaSecondary[0]}
-          href={p("/contact?form=commercial-offer")}
         >
           <TickList items={d.includes.slice(0, 4)} />
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <span className="rounded-full border border-biomass/50 bg-biomass/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-biomass">
+              {formatBatchCount(locale)} {o.availableLabel}
+            </span>
+            <span className="rounded-full border border-[#173c2c]/20 bg-white/70 px-4 py-2 text-[11px] font-medium text-[#34463d]">
+              {RHIZOME_BATCH.variety}
+            </span>
+            <span className="rounded-full border border-[#173c2c]/20 bg-white/70 px-4 py-2 text-[11px] font-medium text-[#34463d]">
+              {o.regionTypeLabel}: {o.regionOptions[0]}
+            </span>
+          </div>
         </SceneSection>
 
         <SceneSection
           num="02"
-          eyebrow={dict.ui.calculatorTitle}
-          title={locale === "uk" ? "Розрахуйте свою партію" : "Estimate your batch"}
-          lead={dict.ui.calculatorLead}
+          eyebrow={o.badge}
+          title={o.title}
+          lead={o.lead}
           image="/images/roots-soil.png"
           imagePosition="60% center"
           compact
           wide
+          titleUppercase={locale !== "he"}
         >
-          <Panel>
-            <PlantingCalculator dict={dict} />
-          </Panel>
+          <RhizomeOrder dict={dict} />
         </SceneSection>
 
         <SceneSection
           num="03"
-          eyebrow={d.pricingTitle}
-          title={locale === "uk" ? "Резервування" : "Reservation"}
-          lead={dict.forms.configs.reserve.description}
-          image="/images/agronomists-v2.png"
-          imagePosition="65% center"
+          eyebrow={dict.ui.calculatorTitle}
+          title={locale === "uk" ? "Розрахуйте свою партію" : locale === "he" ? "חשבו את המנה שלכם" : "Estimate your batch"}
+          lead={dict.ui.calculatorLead}
+          image="/images/roots-soil-continuation.png"
+          imagePosition="60% center"
           compact
           wide
         >
-          <Panel>
-            <LeadForm
-              config={getFormConfigs(dict).reserve}
-              receivedLabel={dict.forms.received}
-              sendingLabel={dict.ui.sending}
-            />
-          </Panel>
+          <PlantingCalculator dict={dict} />
         </SceneSection>
       </main>
       <SiteFooter dict={dict} locale={locale} />

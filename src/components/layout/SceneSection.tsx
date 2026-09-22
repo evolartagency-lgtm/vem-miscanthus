@@ -70,7 +70,7 @@ export function SceneSection({
       />
       <div
         aria-hidden
-        className="absolute inset-0 bg-[linear-gradient(180deg,rgba(248,247,242,0)_0%,rgba(248,247,242,0)_30%,rgba(248,247,242,.6)_52%,rgba(248,247,242,.98)_72%)] lg:bg-[linear-gradient(90deg,rgba(248,247,242,.98)_0%,rgba(248,247,242,.95)_34%,rgba(248,247,242,.52)_58%,rgba(248,247,242,.04)_82%)]"
+        className="scene-scrim absolute inset-0"
       />
       <div
         aria-hidden

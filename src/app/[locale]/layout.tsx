@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
-import { Sora, Manrope, IBM_Plex_Mono } from "next/font/google";
-import { isLocale, locales } from "@/i18n/config";
+import { Sora, Manrope, IBM_Plex_Mono, Heebo } from "next/font/google";
+import { isLocale, isRtl, locales } from "@/i18n/config";
 import "../globals.css";
 
 const sans = Sora({
@@ -15,6 +15,13 @@ const cyrillicSans = Manrope({
   subsets: ["latin", "cyrillic"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-cyrillic-src",
+  display: "swap",
+});
+
+const hebrewSans = Heebo({
+  subsets: ["hebrew", "latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-hebrew-src",
   display: "swap",
 });
 
@@ -60,7 +67,11 @@ export default async function LocaleLayout({
   if (!isLocale(locale)) notFound();
 
   return (
-    <html lang={locale === "uk" ? "uk" : locale} className={`${sans.variable} ${cyrillicSans.variable} ${mono.variable}`}>
+    <html
+      lang={locale}
+      dir={isRtl(locale) ? "rtl" : "ltr"}
+      className={`${sans.variable} ${cyrillicSans.variable} ${hebrewSans.variable} ${mono.variable}`}
+    >
       <body className="min-h-svh bg-carbon font-sans text-bone antialiased">
         {children}
       </body>

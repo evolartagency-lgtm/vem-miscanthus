@@ -2,10 +2,12 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { LocaleSwitcher } from "@/components/layout/LocaleSwitcher";
+import type { Locale } from "@/i18n/config";
 
 type MenuItem = { href: string; label: string };
 
-export function MobileMenu({ items, locale, contactLabel }: { items: MenuItem[]; locale: "uk" | "en"; contactLabel: string }) {
+export function MobileMenu({ items, locale, contactLabel }: { items: MenuItem[]; locale: Locale; contactLabel: string }) {
   const [open, setOpen] = useState(false);
   const prefix = `/${locale}`;
 
@@ -48,9 +50,11 @@ export function MobileMenu({ items, locale, contactLabel }: { items: MenuItem[];
               </Link>
             ))}
           </nav>
-          <div className="mt-auto grid shrink-0 grid-cols-2 gap-3 pt-6">
-            <Link href={locale === "uk" ? "/en" : "/uk"} onClick={() => setOpen(false)} className="flex min-h-12 items-center justify-center rounded-full border border-[#173c2c]/20 text-xs font-semibold tracking-[.16em] text-[#173c2c]">{locale === "uk" ? "EN" : "UA"}</Link>
-            <Link href={`${prefix}/contact`} onClick={() => setOpen(false)} className="flex min-h-12 items-center justify-center rounded-full bg-[#1d3b2a] px-4 text-center text-[11px] font-semibold uppercase tracking-[.1em] text-[#f7f5ee]">{contactLabel}</Link>
+          <div className="mt-auto shrink-0 pt-6">
+            <div className="flex items-center justify-center rounded-full border border-[#173c2c]/20 py-2.5" onClick={() => setOpen(false)}>
+              <LocaleSwitcher current={locale} />
+            </div>
+            <Link href={`${prefix}/contact`} onClick={() => setOpen(false)} className="mt-3 flex min-h-12 items-center justify-center rounded-full bg-[#1d3b2a] px-4 text-center text-[11px] font-semibold uppercase tracking-[.1em] text-[#f7f5ee]">{contactLabel}</Link>
           </div>
         </div>
       </div>

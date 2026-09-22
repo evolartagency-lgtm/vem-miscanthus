@@ -60,6 +60,58 @@ html[lang="uk"] {
   --font-serif: var(--font-cyrillic-src), "Segoe UI", system-ui, sans-serif;
 }
 
+html[lang="he"] {
+  --font-sans-src: var(--font-hebrew-src);
+  --font-serif: var(--font-hebrew-src), "Segoe UI", system-ui, sans-serif;
+}
+
+/* Hebrew has no uppercase and negative tracking breaks glyph joining — relax both. */
+html[lang="he"] .section-title,
+html[lang="he"] .hero-scene h1,
+html[lang="he"] .inner-page header h1 {
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.08;
+}
+
+html[lang="he"] [class*="tracking-"] {
+  letter-spacing: 0.01em;
+}
+
+/* Hero / scene scrims. Directional (90deg) light washes must mirror in RTL
+   so the text side keeps its readable backdrop. */
+.hero-scrim {
+  background:
+    linear-gradient(90deg, rgba(245, 242, 234, 0.92) 0%, rgba(245, 242, 234, 0.5) 38%, rgba(245, 242, 234, 0) 64%),
+    linear-gradient(0deg, rgba(245, 242, 234, 0.85) 0%, transparent 40%, rgba(245, 242, 234, 0.15) 100%);
+}
+
+html[dir="rtl"] .hero-scrim {
+  background:
+    linear-gradient(270deg, rgba(245, 242, 234, 0.92) 0%, rgba(245, 242, 234, 0.5) 38%, rgba(245, 242, 234, 0) 64%),
+    linear-gradient(0deg, rgba(245, 242, 234, 0.85) 0%, transparent 40%, rgba(245, 242, 234, 0.15) 100%);
+}
+
+.scene-scrim {
+  background: linear-gradient(180deg, rgba(248, 247, 242, 0) 0%, rgba(248, 247, 242, 0) 30%, rgba(248, 247, 242, 0.6) 52%, rgba(248, 247, 242, 0.98) 72%);
+}
+
+@media (min-width: 1024px) {
+  .scene-scrim {
+    background: linear-gradient(90deg, rgba(248, 247, 242, 0.98) 0%, rgba(248, 247, 242, 0.95) 34%, rgba(248, 247, 242, 0.52) 58%, rgba(248, 247, 242, 0.04) 82%);
+  }
+
+  html[dir="rtl"] .scene-scrim {
+    background: linear-gradient(270deg, rgba(248, 247, 242, 0.98) 0%, rgba(248, 247, 242, 0.95) 34%, rgba(248, 247, 242, 0.52) 58%, rgba(248, 247, 242, 0.04) 82%);
+  }
+}
+
+html[dir="rtl"] .hero-availability {
+  border-left: 0;
+  border-right: 1px solid #d5b36d;
+  background: linear-gradient(270deg, rgba(5, 17, 12, 0.62), rgba(5, 17, 12, 0.12));
+}
+
 html[lang="uk"] .section-title,
 html[lang="uk"] .hero-scene h1 {
   font-weight: 500;
@@ -95,8 +147,9 @@ main > section {
   border-top: 0 !important;
 }
 
-/* Section numbering is intentionally removed; process order is expressed spatially. */
-.hero-scene .grid > div:first-child > div:first-child,
+/* Section numbering is intentionally removed; process order is expressed spatially.
+   (.hero-scene .grid > div:first-child > div:first-child was dropped — the hero now
+   opens with the VEM logo block, which must stay visible.) */
 .hero-scene nav a > span:first-child,
 .scene-section .mb-6 > span:nth-child(1),
 .scene-section .mb-6 > span:nth-child(2),
@@ -186,6 +239,10 @@ main > section:nth-of-type(9) h3 {
 /* Equipment: readable frosted panels over the detailed harvest photograph. */
 #section-04 > div:nth-child(2) {
   background: linear-gradient(90deg, rgba(248,247,242,.90) 0%, rgba(248,247,242,.78) 30%, rgba(248,247,242,.24) 56%, rgba(248,247,242,.01) 76%);
+}
+
+html[dir="rtl"] #section-04 > div:nth-child(2) {
+  background: linear-gradient(270deg, rgba(248,247,242,.90) 0%, rgba(248,247,242,.78) 30%, rgba(248,247,242,.24) 56%, rgba(248,247,242,.01) 76%);
 }
 
 #section-04 > div:nth-child(3) {
@@ -334,6 +391,10 @@ main > section:nth-of-type(9) h3 {
   background: linear-gradient(90deg, rgba(248,247,242,.99) 0%, rgba(248,247,242,.93) 38%, rgba(248,247,242,.35) 63%, rgba(248,247,242,.04) 86%);
 }
 
+html[dir="rtl"] .hero-scene > div:nth-child(2) {
+  background: linear-gradient(270deg, rgba(248,247,242,.99) 0%, rgba(248,247,242,.93) 38%, rgba(248,247,242,.35) 63%, rgba(248,247,242,.04) 86%);
+}
+
 .hero-scene h1,
 .hero-scene h1 span {
   color: #15241d;
@@ -346,7 +407,6 @@ main > section:nth-of-type(9) h3 {
 .hero-scene .hero-availability p:first-child { color: #f0d394; }
 .hero-scene .hero-availability p:last-child { color: #fff; }
 .hero-scene nav { display: none; }
-.hero-scene .grid > div:first-child > div:first-child { display: none; }
 
 .scene-section {
   color: #15241d;
@@ -424,6 +484,10 @@ main > section:nth-of-type(9) h3 {
     inset: 0;
     pointer-events: none;
     background: linear-gradient(90deg, rgba(248,247,242,.99) 0%, rgba(248,247,242,.93) 38%, rgba(248,247,242,.35) 63%, rgba(248,247,242,.04) 86%);
+  }
+
+  html[dir="rtl"] .continuous-opening::before {
+    background: linear-gradient(270deg, rgba(248,247,242,.99) 0%, rgba(248,247,242,.93) 38%, rgba(248,247,242,.35) 63%, rgba(248,247,242,.04) 86%);
   }
 
   .continuous-opening .hero-scene,

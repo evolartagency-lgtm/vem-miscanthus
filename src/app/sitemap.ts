@@ -4,6 +4,7 @@ import { locales } from "@/i18n/config";
 const routes = [
   "",
   "/buy-rhizomes",
+  "/funnels",
   "/agronomic-support",
   "/services",
   "/technologies",
