@@ -106,10 +106,30 @@ html[dir="rtl"] .hero-scrim {
   }
 }
 
+/* RTL availability card: white panel with the dark-text palette. */
 html[dir="rtl"] .hero-availability {
   border-left: 0;
   border-right: 1px solid #d5b36d;
-  background: linear-gradient(270deg, rgba(5, 17, 12, 0.62), rgba(5, 17, 12, 0.12));
+  background: rgba(252, 251, 247, 0.94);
+  backdrop-filter: blur(6px);
+}
+
+html[dir="rtl"] .hero-scene .hero-availability p:first-child {
+  color: #8a6a2f;
+}
+
+html[dir="rtl"] .hero-scene .hero-availability p:last-child {
+  color: #15241d;
+}
+
+html[dir="rtl"] .hero-availability .text-stone-200 {
+  color: #42554b;
+}
+
+html[dir="rtl"] .hero-availability ol li {
+  border-color: rgba(23, 60, 44, 0.16);
+  background: rgba(255, 255, 255, 0.75);
+  color: #34463d;
 }
 
 /* Hebrew (RTL): mirror decorative photography so compositions read right-to-left.
