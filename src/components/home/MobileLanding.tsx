@@ -191,7 +191,7 @@ export function MobileLanding({ dict, locale }: { dict: Dictionary; locale: Loca
               </div>
             </Reveal>
           </div>
-          <div className="relative min-h-[52svh] flex-1 overflow-hidden">
+          <div className="sky-blend relative min-h-[52svh] flex-1 overflow-hidden">
             <Image
               src="/images/agronomists-v2.png"
               alt=""
@@ -220,7 +220,7 @@ export function MobileLanding({ dict, locale }: { dict: Dictionary; locale: Loca
               </div>
             </Reveal>
           </div>
-          <div className="relative h-[42svh] overflow-hidden">
+          <div className="sky-blend relative h-[42svh] overflow-hidden">
             <Image src="/images/agronomists-v2.png" alt="" fill loading="lazy" sizes="100vw" className="object-cover" style={{ objectPosition: "center" }} />
             <div aria-hidden className="absolute inset-0 bg-[linear-gradient(180deg,rgba(248,247,242,.25)_0%,rgba(7,19,14,0)_40%,rgba(7,19,14,.55)_100%)]" />
             <div className="absolute inset-x-0 bottom-0 pb-6">
@@ -259,7 +259,7 @@ export function MobileLanding({ dict, locale }: { dict: Dictionary; locale: Loca
               </div>
             </Reveal>
           </div>
-          <div className="relative h-[40svh] overflow-hidden">
+          <div className="sky-blend relative h-[40svh] overflow-hidden">
             <Image src="/images/equipment-harvester-v2.png" alt="" fill loading="lazy" sizes="100vw" className="object-cover" />
             <div aria-hidden className="absolute inset-0 bg-[linear-gradient(180deg,rgba(248,247,242,.2)_0%,rgba(7,19,14,0)_45%,rgba(7,19,14,.5)_100%)]" />
             <div className="absolute inset-x-0 bottom-0 pb-6">
