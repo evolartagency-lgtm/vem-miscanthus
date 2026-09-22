@@ -497,6 +497,25 @@ html[dir="rtl"] .hero-scene > div:nth-child(2) {
     background: linear-gradient(270deg, rgba(248,247,242,.99) 0%, rgba(248,247,242,.93) 38%, rgba(248,247,242,.35) 63%, rgba(248,247,242,.04) 86%);
   }
 
+  /* Desktop "continuous opening": the hero photo lives on the wrapper itself
+     (inner photo divs are disabled below), so mirror it via a dedicated layer. */
+  html[dir="rtl"] .continuous-opening {
+    background-image: none;
+  }
+
+  html[dir="rtl"] .continuous-opening::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("/images/hero-roots-continuous-v2.png");
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    scale: -1 1;
+  }
+
   .continuous-opening .hero-scene,
   .continuous-opening #section-02 {
     background-color: transparent;
