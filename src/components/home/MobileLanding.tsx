@@ -107,23 +107,23 @@ export function MobileLanding({ dict, locale }: { dict: Dictionary; locale: Loca
       <main className="min-h-svh bg-[#f8f7f2] text-[#15241d]">
         {/* 1 — Hero: existing hero content, sunlit photo, interface in the light */}
         <section className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden">
-          <Photo src="/images/m-hero-dawn-roots.png" priority />
+          <Photo src="/images/hero-roots-continuous-v2.png" priority />
           <div
             aria-hidden
             className="absolute inset-0"
-            style={{ background: "linear-gradient(180deg, rgba(248,247,242,.42) 0%, rgba(248,247,242,.10) 32%, rgba(7,19,14,.20) 55%, rgba(7,19,14,.62) 78%, rgba(7,19,14,.78) 100%)" }}
+            style={{ background: "linear-gradient(180deg, rgba(248,247,242,.22) 0%, rgba(248,247,242,.05) 30%, rgba(7,19,14,.48) 52%, rgba(7,19,14,.62) 74%, rgba(248,247,242,.55) 92%, rgba(248,247,242,.95) 100%)" }}
           />
           <div className="relative px-6 pb-10 pt-28">
             <Reveal>
-              <h1 className="max-w-[10ch] font-sans text-[clamp(2.6rem,12vw,4.4rem)] font-semibold uppercase leading-[1.0] tracking-[-0.02em] text-[#15241d]">
+              <h1 className="max-w-[10ch] font-sans text-[clamp(2.6rem,12vw,4.4rem)] font-semibold uppercase leading-[1.0] tracking-[-0.02em] text-[#f3efe2] [text-shadow:0_2px_28px_rgba(7,19,14,.6)]">
                 {h.hero.titleLines[0]}
                 <br />
                 {h.hero.titleLines[1]}
               </h1>
-              <p className="mt-4 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#8a6a2f]">
+              <p className="mt-4 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#ead09f]">
                 Regenerative bioeconomy · Circular economy · Low-carbon industry
               </p>
-              <p className="mt-4 max-w-md text-[16px] leading-relaxed text-[#1f2d26]">{h.hero.lead}</p>
+              <p className="mt-4 max-w-md text-[16px] leading-relaxed text-[#f3efe2]/95 [text-shadow:0_1px_16px_rgba(7,19,14,.55)]">{h.hero.lead}</p>
               <div className="mt-7 max-w-[300px]">
                 <Link href={p("/buy-rhizomes")} className="cta-modern flex min-h-[52px] w-full max-w-[300px] items-center justify-center gap-3 rounded-full bg-[#1d3b2a] px-7 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#f3efe2] transition-all hover:-translate-y-0.5 hover:bg-[#27503a]">
                 {h.rhizomes.ctaPrimary}
@@ -152,7 +152,7 @@ export function MobileLanding({ dict, locale }: { dict: Dictionary; locale: Loca
           <div
             aria-hidden
             className="absolute inset-0"
-            style={{ background: "linear-gradient(180deg, rgba(7,19,14,.38) 0%, rgba(7,19,14,.15) 30%, rgba(248,247,242,.5) 55%, rgba(248,247,242,.94) 78%, #f8f7f2 100%)" }}
+            style={{ background: "linear-gradient(180deg, rgba(248,247,242,.96) 0%, rgba(248,247,242,.4) 26%, rgba(248,247,242,.2) 55%, rgba(248,247,242,.82) 84%, #f8f7f2 100%)" }}
           />
           <div className="relative px-6 pb-14 pt-24">
             <Reveal>
