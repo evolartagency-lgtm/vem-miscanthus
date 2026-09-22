@@ -75,6 +75,10 @@ const SLOTS = {
     size: "1024x1536",
     prompt: `Two specialists walking and talking in a tall miscanthus field at sunset seen from behind, warm golden backlight, silhouettes, vast field around them, cinematic photorealistic, premium editorial look, no text, no watermark`,
   },
+  "m-fog-dawn": {
+    size: "1024x1536",
+    prompt: `Miscanthus grass field at dawn with dense soft white fog covering the entire top of the frame, thick misty sky fading into the field, tall grass and dark soil visible in the lower part, faint golden morning light through the fog, cinematic photorealistic, premium editorial look, large soft empty areas, no text, no watermark`,
+  },
   "m-leaves-dark": {
     size: "1024x1536",
     prompt: `Dark green miscanthus leaves arranged elegantly against a near-black deep green background, minimal botanical texture, subtle warm golden rim light, cinematic, no text, no watermark`,

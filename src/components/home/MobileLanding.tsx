@@ -148,11 +148,11 @@ export function MobileLanding({ dict, locale }: { dict: Dictionary; locale: Loca
 
         {/* 2 — About: hero continues downward into the roots, title in the white haze */}
         <section className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden bg-[#0b1712]">
-          <Photo src="/images/roots-soil.png" position="center" />
+          <Photo src="/images/m-fog-dawn.png" position="center" />
           <div
             aria-hidden
             className="absolute inset-0"
-            style={{ background: "radial-gradient(135% 85% at 15% 100%, rgba(248,247,242,.97) 0%, rgba(248,247,242,.75) 45%, rgba(248,247,242,.25) 72%, rgba(248,247,242,0) 95%)" }}
+            style={{ background: "linear-gradient(180deg, rgba(248,247,242,.18) 0%, rgba(248,247,242,.06) 34%, rgba(248,247,242,.42) 62%, rgba(248,247,242,.96) 100%)" }}
           />
           <div className="relative px-6 pb-14 pt-24">
             <Reveal>
