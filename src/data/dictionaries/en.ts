@@ -499,6 +499,9 @@ export const en = {
     successTitle: "ORDER RECEIVED",
     successText: "Your order has been submitted. The manager will confirm the 30,000-rhizome batch availability, final price and invoice within two business days.",
   },
+  mobile: {
+    scrollCue: "Scroll to explore",
+  },
   funnels: {
     navLabel: "Directions",
     kicker: "ONE PLATFORM · MANY DIRECTIONS",

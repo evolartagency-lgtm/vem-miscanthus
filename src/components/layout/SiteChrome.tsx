@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Dictionary, Locale } from "@/data/dictionaries";
 import { MobileMenu } from "@/components/layout/MobileMenu";
 import { LocaleSwitcher } from "@/components/layout/LocaleSwitcher";
+import { HeaderScroll } from "@/components/layout/HeaderScroll";
 
 export function SiteHeader({ dict, locale }: { dict: Dictionary; locale: Locale }) {
   const p = (path: string) => `/${locale}${path}`;
@@ -9,11 +10,12 @@ export function SiteHeader({ dict, locale }: { dict: Dictionary; locale: Locale 
   const desktopItems = [homeItem, ...dict.nav.site.slice(0, 5)];
   const mobileItems = [homeItem, ...dict.nav.site.slice(0, 6)];
   return (
-    <header className="fixed inset-x-0 top-0 z-[100] isolate border-b border-[#153c2b]/10 bg-[#f8f6ef]">
+    <header className="vem-header fixed inset-x-0 top-0 z-[100] isolate border-b border-[#153c2b]/10 bg-[#f8f6ef]">
+      <HeaderScroll />
       <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-6 px-6 py-4 sm:px-10 lg:px-14">
-        <Link href={p("/")} className="group relative block pl-4 before:absolute before:inset-y-0 before:left-0 before:w-px before:bg-biomass">
-          <span className="block font-serif text-[27px] font-normal leading-none tracking-[0.08em] text-[#10271e]">VEM</span>
-          <span className="mt-1 block text-[6px] font-semibold uppercase tracking-[0.18em] text-[#10271e]/65">Vital Energy Miscanthus</span>
+        <Link href={p("/")} className="group vem-logo relative block pl-4 before:absolute before:inset-y-0 before:left-0 before:w-px before:bg-biomass">
+          <span className="vem-logo-mark block font-serif text-[27px] font-normal leading-none tracking-[0.08em] text-[#10271e]">VEM</span>
+          <span className="vem-logo-sub mt-1 block text-[6px] font-semibold uppercase tracking-[0.18em] text-[#10271e]/65">Vital Energy Miscanthus</span>
         </Link>
         <nav aria-label="Primary" className="hidden items-center gap-6 lg:flex">
           {desktopItems.map((item) => (
@@ -36,7 +38,12 @@ export function SiteHeader({ dict, locale }: { dict: Dictionary; locale: Locale 
           </Link>
           <MobileMenu items={dict.nav.site} locale={locale} contactLabel={dict.nav.contact} />
         </div>
-        <MobileMenu items={mobileItems} locale={locale} contactLabel={dict.nav.contact} />
+        <div className="flex items-center gap-4 lg:hidden">
+          <div className="vem-lang">
+            <LocaleSwitcher current={locale} />
+          </div>
+          <MobileMenu items={mobileItems} locale={locale} contactLabel={dict.nav.contact} className="vem-burger" />
+        </div>
       </div>
     </header>
   );

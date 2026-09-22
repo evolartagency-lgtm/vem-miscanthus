@@ -41,6 +41,7 @@ export function SceneSection({
   cornerLeft,
   cornerRight,
   noFlip = false,
+  tone = "light",
 }: {
   num: string;
   eyebrow: string;
@@ -59,13 +60,15 @@ export function SceneSection({
   cornerRight?: string;
   /** Opt out of RTL mirroring — required for photos containing screens or readable text. */
   noFlip?: boolean;
+  /** Mobile-only: "dark" renders a full-bleed premium photo scene with light text. */
+  tone?: "light" | "dark";
 }) {
   const Title = titleAs;
   const displayTitle = title.replace(/\./g, "");
   return (
     <section
       id={`section-${num}`}
-      className={`scene-section relative flex items-end overflow-hidden lg:items-center ${compact ? "min-h-[560px]" : "min-h-[720px]"}`}
+      className={`scene-section relative flex items-end overflow-hidden lg:items-center ${compact ? "min-h-[560px]" : "min-h-[720px]"} ${tone === "dark" ? "scene-dark" : ""}`}
     >
       <div
         aria-hidden

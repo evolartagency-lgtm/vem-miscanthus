@@ -600,13 +600,37 @@ html[dir="rtl"] .hero-scene > div:nth-child(2) {
     background-position: 66% bottom !important;
   }
 
+  /* Dark cinematic hero (mobile): photo fills the screen, cream type on top. */
   .hero-scene > div:nth-child(2) {
-    background: linear-gradient(180deg, rgba(248,247,242,.97) 0%, rgba(248,247,242,.93) 45%, rgba(248,247,242,.72) 72%, rgba(248,247,242,.34) 100%);
+    background: linear-gradient(180deg, rgba(7,19,14,.55) 0%, rgba(7,19,14,.30) 32%, rgba(7,19,14,.62) 64%, rgba(7,19,14,.93) 100%);
   }
 
-  .hero-scene p,
-  .hero-scene .hero-availability {
-    color: #1f2d26;
+  .hero-scene h1,
+  .hero-scene h1 span { color: #f3efe2 !important; }
+
+  .hero-scene .grid > div:first-child p.text-biomass { color: #d5b36d !important; }
+
+  .hero-scene .grid > div:first-child .text-stone-300 { color: rgba(243,239,226,.92); }
+
+  .hero-scene .grid > div:first-child > div:first-child {
+    border-color: rgba(243,239,226,.35);
+    background: rgba(7,19,14,.32);
+  }
+
+  .hero-scene .grid > div:first-child > div:first-child > span:first-child,
+  .hero-scene .grid > div:first-child > div:first-child > span:last-child { color: #f3efe2 !important; }
+
+  /* Primary CTA turns gold on the dark hero; secondaries go ghost-light. */
+  .hero-scene .mt-8.flex a:first-child {
+    background: linear-gradient(135deg, #ead09f, #c99f61);
+    border-color: transparent;
+    color: #221a0c;
+  }
+
+  .hero-scene .mt-8.flex a:not(:first-child) {
+    border-color: rgba(243,239,226,.45);
+    background: rgba(243,239,226,.08);
+    color: #f3efe2;
   }
 
   .hero-scene > .relative {
@@ -858,8 +882,8 @@ html[dir="rtl"] .hero-scene > div:nth-child(2) {
 
 /* Hero secondary CTAs: light variant is invisible on the light hero scrim — use dark. */
 .hero-scene .mt-8.flex a:not(:first-child) {
-  border-color: rgba(23, 60, 44, 0.4);
-  background: rgba(255, 255, 255, 0.6);
+  border-color: rgba(23, 60, 44, 0.35);
+  background: rgba(255, 255, 255, 0.88);
   color: #1d3b2a;
 }
 
@@ -867,4 +891,195 @@ html[dir="rtl"] .hero-scene > div:nth-child(2) {
   border-color: #a2762e;
   background: rgba(162, 118, 46, 0.14);
   color: #1d3b2a;
+}
+
+
+/* ============================================================
+   PREMIUM MOBILE EXPERIENCE (<1024px). Desktop (>=1024px) is
+   completely unaffected — every rule here is mobile/tablet only.
+   ============================================================ */
+@media (max-width: 1023px) {
+  /* Landing flows as stacked full-bleed scenes in the marketing order. */
+  .landing-main {
+    display: flex;
+    flex-direction: column;
+  }
+  .landing-main .continuous-opening { order: 1; }
+  .landing-main #section-07 { order: 2; }
+  .landing-main #section-03 { order: 3; }
+  .landing-main #section-05 { order: 4; }
+  .landing-main #section-06 { order: 5; }
+  .landing-main #section-04 { order: 6; }
+  .landing-main #section-08 { order: 7; }
+  .landing-main .mobile-industry { order: 8; }
+  .landing-main .mobile-partnership { order: 9; }
+  .landing-main > section:nth-last-of-type(2) { order: 10; }
+  .landing-main > section:nth-last-of-type(1) { order: 11; }
+  .landing-main > footer { order: 12; }
+
+  /* Rhizomes availability — its own near-fullscreen cream scene. */
+  .hero-availability {
+    min-height: 86svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #f8f7f2;
+    border-left: 0;
+    border-top: 1px solid #d5b36d;
+    padding: 2.5rem 1.4rem 3rem;
+    backdrop-filter: none;
+  }
+  .hero-scene .hero-availability p:first-child { color: #8a6a2f; font-size: 3.2rem; }
+  .hero-scene .hero-availability p:last-child { color: #15241d; }
+  .hero-availability .text-stone-200 { color: #42554b; }
+  .hero-availability ol li {
+    border-color: rgba(23, 60, 44, 0.16);
+    background: #fff;
+    color: #34463d;
+  }
+
+  /* Touch-friendly CTAs. */
+  a.cta-modern,
+  button.cta-modern {
+    min-height: 52px;
+  }
+
+  /* Editorial body copy instead of shrunken desktop text. */
+  .scene-section p,
+  .scene-section li {
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  /* Header: transparent over the dark hero, matte cream once scrolled. */
+  .landing-main > header {
+    background: linear-gradient(180deg, rgba(7, 19, 14, 0.55), rgba(7, 19, 14, 0));
+    border-bottom-color: transparent;
+  }
+  .landing-main > header .vem-logo-mark,
+  .landing-main > header .vem-logo-sub {
+    color: #f3efe2 !important;
+  }
+  .landing-main > header .vem-burger {
+    background: rgba(7, 19, 14, 0.32);
+    border-color: rgba(243, 239, 226, 0.45);
+    color: #f3efe2;
+  }
+  .landing-main > header .vem-lang a {
+    color: rgba(243, 239, 226, 0.85);
+  }
+  .landing-main > header .vem-lang a[aria-current="true"] {
+    color: #d5b36d;
+  }
+
+  html.is-scrolled .landing-main > header {
+    background: rgba(248, 246, 239, 0.94);
+    backdrop-filter: blur(12px);
+    border-bottom-color: rgba(21, 60, 44, 0.08);
+  }
+  html.is-scrolled .landing-main > header .vem-logo-mark,
+  html.is-scrolled .landing-main > header .vem-logo-sub {
+    color: #10271e !important;
+  }
+  html.is-scrolled .landing-main > header .vem-burger {
+    background: rgba(255, 255, 255, 0.7);
+    border-color: rgba(23, 60, 44, 0.25);
+    color: #173c2c;
+  }
+  html.is-scrolled .landing-main > header .vem-lang a {
+    color: #10271e;
+  }
+  html.is-scrolled .landing-main > header .vem-lang a[aria-current="true"] {
+    color: #8a6a2f;
+  }
+
+  /* Dark premium scenes: full-bleed photo, light editorial type, gold CTA. */
+  .scene-dark {
+    background: #0b1712;
+    color: #f3efe2;
+  }
+  .scene-dark > div:nth-child(2) {
+    background: linear-gradient(180deg, rgba(7, 19, 14, 0.80) 0%, rgba(7, 19, 14, 0.48) 32%, rgba(7, 19, 14, 0.58) 62%, rgba(7, 19, 14, 0.97) 100%);
+  }
+  .scene-dark .section-title,
+  .scene-dark h3 {
+    color: #f3efe2 !important;
+  }
+  .scene-dark p {
+    color: rgba(243, 239, 226, 0.9) !important;
+  }
+  .scene-dark li,
+  .scene-dark li span {
+    color: #e9e4d5 !important;
+  }
+  .scene-dark li svg,
+  .scene-dark div svg,
+  .scene-dark span svg {
+    color: #d5b36d !important;
+  }
+  .scene-dark .mb-6 > span:last-child {
+    color: #d5b36d !important;
+  }
+  .scene-dark span.rounded-full {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(216, 180, 124, 0.45) !important;
+    color: #e9e4d5 !important;
+  }
+  .scene-dark div[class*="bg-white/40"],
+  .scene-dark div[class*="bg-white/60"] {
+    background: rgba(255, 255, 255, 0.06) !important;
+  }
+  .scene-dark .border-l {
+    border-color: rgba(216, 180, 124, 0.5) !important;
+  }
+  .scene-dark .text-biomass,
+  .scene-dark span.text-biomass {
+    color: #d5b36d !important;
+  }
+  .scene-dark a.cta-modern {
+    background: linear-gradient(135deg, #ead09f, #c99f61);
+    border-color: transparent;
+    color: #221a0c;
+  }
+
+  /* Final CTA: deep-green curtain before the footer. */
+  .landing-main > section:nth-last-of-type(1) {
+    background-color: #14271e;
+    background-blend-mode: multiply;
+  }
+  .landing-main > section:nth-last-of-type(1) h2,
+  .landing-main > section:nth-last-of-type(1) p,
+  .landing-main > section:nth-last-of-type(1) span {
+    color: #f3efe2;
+  }
+  .landing-main > section:nth-last-of-type(1) svg {
+    color: #d5b36d;
+  }
+  .landing-main > section:nth-last-of-type(1) a.cta-modern {
+    background: linear-gradient(135deg, #ead09f, #c99f61);
+    border-color: transparent;
+    color: #221a0c;
+  }
+}
+
+/* Dark scenes: chain chips inside flex rows also flip to cream. */
+@media (max-width: 1023px) {
+  .scene-dark div.flex.flex-wrap span {
+    color: #e9e4d5 !important;
+  }
+}
+
+/* Mobile editorial headlines: real serif display face (latin + cyrillic). */
+@media (max-width: 1023px) {
+  .hero-scene h1,
+  .scene-section .section-title,
+  .landing-main > section h2,
+  .landing-main .inner-page h1 {
+    font-family: var(--font-display-src), Georgia, "Times New Roman", serif;
+  }
+
+  html[lang="he"] .hero-scene h1,
+  html[lang="he"] .scene-section .section-title {
+    font-family: var(--font-hebrew-src), "Segoe UI", system-ui, sans-serif;
+  }
 }

@@ -7,7 +7,7 @@ import type { Locale } from "@/i18n/config";
 
 type MenuItem = { href: string; label: string };
 
-export function MobileMenu({ items, locale, contactLabel }: { items: MenuItem[]; locale: Locale; contactLabel: string }) {
+export function MobileMenu({ items, locale, contactLabel, className = "" }: { items: MenuItem[]; locale: Locale; contactLabel: string; className?: string }) {
   const [open, setOpen] = useState(false);
   const prefix = `/${locale}`;
 
@@ -29,7 +29,7 @@ export function MobileMenu({ items, locale, contactLabel }: { items: MenuItem[];
         aria-expanded={open}
         aria-controls="mobile-navigation"
         aria-label={open ? (locale === "uk" ? "Закрити меню" : "Close menu") : (locale === "uk" ? "Відкрити меню" : "Open menu")}
-        className="relative z-[60] flex h-11 w-11 items-center justify-center rounded-full border border-[#173c2c]/20 bg-white/65 text-[#173c2c] backdrop-blur-md"
+        className={`vem-burger ${className} relative z-[60] flex h-11 w-11 items-center justify-center rounded-full border border-[#173c2c]/20 bg-white/65 text-[#173c2c] backdrop-blur-md`}
       >
         <span className="relative h-4 w-5">
           <span className={`absolute left-0 top-0 h-px w-5 bg-current transition-transform duration-300 ${open ? "translate-y-[7px] rotate-45" : ""}`} />
