@@ -1084,3 +1084,33 @@ html[dir="rtl"] .hero-scene > div:nth-child(2) {
   }
 }
 
+
+/* --- Mobile polish pass: cleaner hero, serif title, richer light scenes --- */
+@media (max-width: 1023px) {
+  /* The header already carries the brand mark — the in-hero box is a duplicate. */
+  .hero-scene .grid > div:first-child > div:first-child {
+    display: none;
+  }
+
+  /* Editorial serif headline on mobile. */
+  .hero-scene h1,
+  .hero-scene h1 span {
+    font-family: var(--font-display-src), Georgia, "Times New Roman", serif;
+    font-weight: 500;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Light scenes: richer photo so dark type keeps contrast and depth. */
+  .scene-section > div:first-child {
+    filter: brightness(0.94) saturate(1.06);
+  }
+
+  .scene-section .text-stone-600 {
+    color: #22322a;
+  }
+
+  .hero-scene {
+    min-height: 92svh;
+  }
+}
