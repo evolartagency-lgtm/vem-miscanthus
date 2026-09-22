@@ -65,7 +65,7 @@ export default async function FunnelsCatalogPage({
                 {FUNNELS.length} {f.countLabel}
               </span>
               <Link href={p("/buy-rhizomes")} className="cta-modern rounded-full border border-biomass/80 bg-[linear-gradient(135deg,#ead09f,#c99f61)] px-6 py-2.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#221a0c] transition-all hover:-translate-y-0.5">
-                {formatBatchCount(locale)} {dict.order.availableLabel} · {dict.home.rhizomes.ctaPrimary} →
+                <span className="hidden sm:inline">{formatBatchCount(locale)} {dict.order.availableLabel} · </span>{dict.home.rhizomes.ctaPrimary} →
               </Link>
             </div>
           </div>

@@ -69,7 +69,7 @@ export function HomeLanding({ dict, locale }: { dict: Dictionary; locale: Locale
                 <li key={s} className="rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-[10px] font-semibold text-stone-100">{i + 1}. {s}</li>
               ))}
             </ol>
-            <Link href={p("/buy-rhizomes")} className="cta-modern mt-6 inline-block rounded-full border border-biomass/80 bg-[linear-gradient(135deg,#ead09f,#c99f61)] px-7 py-3.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#221a0c] shadow-[0_10px_34px_rgba(164,118,47,.28)] transition-all hover:-translate-y-0.5">
+            <Link href={p("/buy-rhizomes")} className="cta-modern mt-6 hidden lg:inline-block rounded-full border border-biomass/80 bg-[linear-gradient(135deg,#ead09f,#c99f61)] px-7 py-3.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#221a0c] shadow-[0_10px_34px_rgba(164,118,47,.28)] transition-all hover:-translate-y-0.5">
               {h.rhizomes.ctaPrimary} <span aria-hidden>→</span>
             </Link>
           </Reveal>
