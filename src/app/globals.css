@@ -249,6 +249,8 @@ body::before {
   letter-spacing: -.038em;
 }
 
+
+
 .hero-scene h1 {
   max-width: 13ch;
   font-weight: 400;
@@ -427,7 +429,7 @@ html[dir="rtl"] .hero-scene > div:nth-child(2) {
 .hero-scene h1,
 .hero-scene h1 span {
   color: #15241d;
-  font-family: var(--font-serif);
+  font-family: var(--font-display-src), Georgia, "Times New Roman", serif;
   font-weight: 400;
   text-shadow: none;
 }
@@ -639,15 +641,15 @@ html[dir="rtl"] .hero-scene > div:nth-child(2) {
   }
 
   .hero-scene h1 {
-    max-width: 9.5ch;
-    font-size: clamp(3rem, 15vw, 4.4rem);
-    line-height: .9;
+    max-width: none;
+    font-size: clamp(2.35rem, 10.2vw, 3.6rem);
+    line-height: 1.04;
   }
 
   html[lang="uk"] .hero-scene h1 {
-    max-width: 10ch;
-    font-size: clamp(2.85rem, 14vw, 4.1rem);
-    line-height: .94;
+    max-width: none;
+    font-size: clamp(2.25rem, 9.8vw, 3.4rem);
+    line-height: 1.04;
   }
 
   .hero-scene p {
@@ -1139,4 +1141,27 @@ html[dir="rtl"] .hero-scene > div:nth-child(2) {
   .scene-section:not(.scene-dark) > .relative {
     padding: 5.5rem 1.4rem 2rem;
   }
+}
+
+
+/* Display headlines: Tenor Sans — clean sans without serifs, luxury tracking. */
+.hero-scene h1,
+.hero-scene h1 span,
+h1.section-title,
+h2.section-title,
+.inner-page header h1,
+.mobile-landing h1,
+.mobile-landing h2 {
+  font-family: var(--font-display-src), Georgia, serif !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.02em !important;
+}
+
+html[lang="he"] .hero-scene h1,
+html[lang="he"] h1.section-title,
+html[lang="he"] h2.section-title,
+html[lang="he"] .inner-page header h1,
+html[lang="he"] .mobile-landing h1,
+html[lang="he"] .mobile-landing h2 {
+  font-family: var(--font-hebrew-src), "Segoe UI", system-ui, sans-serif !important;
 }
