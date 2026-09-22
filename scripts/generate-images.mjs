@@ -63,6 +63,18 @@ const SLOTS = {
     size: "1024x1536",
     prompt: `Businessman and farmer shaking hands in a green miscanthus field at golden hour, warm backlight and soft flare, cinematic photorealistic, premium editorial look, no text, no watermark`,
   },
+  "m-soil-roots-macro": {
+    size: "1024x1536",
+    prompt: `Dark cinematic macro of an underground miscanthus rhizome network in rich black soil with one small green sprout emerging above, deep earthy tones, dramatic soft side light, large dark areas for text, cinematic photorealistic, no text, no watermark`,
+  },
+  "m-agronomist": {
+    size: "1024x1536",
+    prompt: `Agronomist in a light shirt examining tall miscanthus plants in a field at golden hour, seen from the side, warm sunlight through the leaves, shallow depth of field, cinematic photorealistic, premium editorial look, no text, no watermark`,
+  },
+  "m-partners-field": {
+    size: "1024x1536",
+    prompt: `Two specialists walking and talking in a tall miscanthus field at sunset seen from behind, warm golden backlight, silhouettes, vast field around them, cinematic photorealistic, premium editorial look, no text, no watermark`,
+  },
   "m-leaves-dark": {
     size: "1024x1536",
     prompt: `Dark green miscanthus leaves arranged elegantly against a near-black deep green background, minimal botanical texture, subtle warm golden rim light, cinematic, no text, no watermark`,

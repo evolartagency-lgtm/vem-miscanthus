@@ -107,11 +107,11 @@ export function MobileLanding({ dict, locale }: { dict: Dictionary; locale: Loca
       <main className="min-h-svh bg-[#f8f7f2] text-[#15241d]">
         {/* 1 — Hero: existing hero content, sunlit photo, interface in the light */}
         <section className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden">
-          <Photo src="/images/hero-field.png" priority />
+          <Photo src="/images/hero-roots-continuous-v2.png" priority />
           <div
             aria-hidden
             className="absolute inset-0"
-            style={{ background: "linear-gradient(180deg, rgba(248,247,242,.30) 0%, rgba(248,247,242,.06) 40%, rgba(248,247,242,.30) 66%, rgba(248,247,242,.88) 100%)" }}
+            style={{ background: "linear-gradient(180deg, rgba(248,247,242,.30) 0%, rgba(248,247,242,.08) 34%, rgba(7,19,14,.52) 60%, rgba(7,19,14,.88) 100%)" }}
           />
           <div className="relative px-6 pb-10 pt-28">
             <Reveal>
@@ -145,7 +145,7 @@ export function MobileLanding({ dict, locale }: { dict: Dictionary; locale: Loca
 
         {/* 2 — About: hero continues downward into the roots, title in the white haze */}
         <section className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden bg-[#0b1712]">
-          <Photo src="/images/hero-roots-continuous-v2.png" position="center" />
+          <Photo src="/images/roots-soil.png" position="center" />
           <div
             aria-hidden
             className="absolute inset-0"
@@ -221,7 +221,7 @@ export function MobileLanding({ dict, locale }: { dict: Dictionary; locale: Loca
             </Reveal>
           </div>
           <div className="sky-blend relative h-[42svh] overflow-hidden">
-            <Image src="/images/agronomists-v2.png" alt="" fill loading="lazy" sizes="100vw" className="object-cover" style={{ objectPosition: "center" }} />
+            <Image src="/images/m-agronomist.png" alt="" fill loading="lazy" sizes="100vw" className="object-cover" style={{ objectPosition: "center" }} />
             <div aria-hidden className="absolute inset-0 bg-[linear-gradient(180deg,rgba(248,247,242,.25)_0%,rgba(7,19,14,0)_40%,rgba(7,19,14,.55)_100%)]" />
             <div className="absolute inset-x-0 bottom-0 pb-6">
               <LabelRow items={pages.agronomicSupport.tools.slice(0, 3).map((t) => t.split(" ").slice(0, 2).join(" "))} />
@@ -270,7 +270,7 @@ export function MobileLanding({ dict, locale }: { dict: Dictionary; locale: Loca
 
         {/* 8 — Partnership: existing consortium content (dark, people photo) */}
         <section className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden bg-[#0b1712]">
-          <Photo src="/images/agronomists-v2.png" position="62% center" />
+          <Photo src="/images/m-partners-field.png" position="center" />
           <div aria-hidden className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(7,19,14,.58) 0%, rgba(7,19,14,.28) 40%, rgba(7,19,14,.9) 100%)" }} />
           <div className="relative px-6 pb-12 pt-24">
             <Reveal>
