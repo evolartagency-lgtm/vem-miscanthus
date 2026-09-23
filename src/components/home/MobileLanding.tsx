@@ -283,9 +283,11 @@ export function MobileLanding({ dict, locale }: { dict: Dictionary; locale: Loca
           <div aria-hidden className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(7,19,14,.58) 0%, rgba(7,19,14,.28) 40%, rgba(7,19,14,.9) 100%)" }} />
           <div className="relative px-6 pb-12 pt-24">
             <Reveal>
-              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#d5b36d]">{pages.consortium.title}</p>
+              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#d5b36d]">
+                {dict.nav.site.find((i) => i.href === "/consortium")?.label ?? pages.consortium.title}
+              </p>
               <h2 className="mt-4 max-w-md font-sans text-[clamp(2.2rem,9vw,3.2rem)] font-semibold leading-[1.08] tracking-[-0.02em] text-[#f3efe2]">
-                {pages.consortium.lead.split(".")[0]}.
+                {pages.consortium.title}
               </h2>
               <p className="mt-4 max-w-md text-[16px] leading-relaxed text-[#e9e4d5]/90">{pages.consortium.lead}</p>
               <div className="mt-7">
