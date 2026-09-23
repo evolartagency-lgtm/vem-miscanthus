@@ -21,7 +21,7 @@ export function SiteHeader({ dict, locale }: { dict: Dictionary; locale: Locale 
             width={1600}
             height={664}
             priority
-            className="h-9 w-auto rounded-lg bg-white/90 px-2 py-1 mix-blend-multiply lg:h-11"
+            className="h-12 w-auto rounded-lg bg-white/90 px-2.5 py-1.5 mix-blend-multiply lg:h-16"
           />
         </Link>
         <nav aria-label="Primary" className="hidden items-center gap-6 lg:flex">
