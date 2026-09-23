@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
-import { Sora, Manrope, IBM_Plex_Mono, Heebo, Jost } from "next/font/google";
+import { Sora, Manrope, IBM_Plex_Mono, Heebo } from "next/font/google";
 import { isLocale, isRtl, locales } from "@/i18n/config";
 import "../globals.css";
 
@@ -18,9 +18,9 @@ const cyrillicSans = Manrope({
   display: "swap",
 });
 
-const displaySans = Jost({
+const displaySans = Manrope({
   subsets: ["latin", "cyrillic"],
-  weight: ["300", "400", "500"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-display-src",
   display: "swap",
 });
