@@ -148,31 +148,25 @@ export function MobileLanding({ dict, locale }: { dict: Dictionary; locale: Loca
 
         {/* 2 — About: hero continues downward into the roots, title in the white haze */}
         <section className="relative flex min-h-[100svh] flex-col overflow-hidden bg-[#f8f7f2] text-[#15241d]">
-          <div aria-hidden className="absolute inset-x-0 top-0 h-[64svh] overflow-hidden">
-            <div aria-hidden className="photo-layer absolute inset-0 overflow-hidden">
-              <Image
-                src="/images/hero-roots-continuous-v2.png"
-                alt=""
-                fill
-                loading="lazy"
-                sizes="100vw"
-                className="object-cover"
-                style={{ objectPosition: "center 80%" }}
-              />
-            </div>
-            <div
-              aria-hidden
-              className="absolute inset-0"
-              style={{ background: "linear-gradient(180deg, rgba(248,247,242,.35) 0%, rgba(248,247,242,0) 28%, rgba(248,247,242,.45) 62%, rgba(248,247,242,.95) 80%, #f8f7f2 90%)" }}
-            />
-          </div>
-          <div className="relative mt-auto px-6 pb-16">
+          <div className="relative flex flex-1 flex-col justify-end px-6 pb-10 pt-28">
             <Reveal>
               <Eyebrow>{locale === "he" ? "מיסקנטוס: מהקרקע למערכת" : "Міскантус: від землі до системи"}</Eyebrow>
               <SceneTitle size="lg">{locale === "uk" ? "Від землі до системи" : locale === "he" ? "מהקרקע למערכת" : "From soil to system"}</SceneTitle>
               <SceneText>{pages.about.lead}</SceneText>
               <SceneText>{pages.technologies.lead}</SceneText>
             </Reveal>
+          </div>
+          <div aria-hidden className="sky-blend relative h-[52svh] overflow-hidden">
+            <Image
+              src="/images/hero-roots-continuous-v2.png"
+              alt=""
+              fill
+              loading="lazy"
+              sizes="100vw"
+              className="object-cover"
+              style={{ objectPosition: "center 75%" }}
+            />
+            <div aria-hidden className="absolute inset-0 bg-[linear-gradient(180deg,rgba(248,247,242,.55)_0%,rgba(248,247,242,0)_35%)]" />
           </div>
         </section>
 
