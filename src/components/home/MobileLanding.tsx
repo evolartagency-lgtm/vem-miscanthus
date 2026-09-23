@@ -171,7 +171,7 @@ export function MobileLanding({ dict, locale }: { dict: Dictionary; locale: Loca
         </section>
 
         {/* 3 — Value chain: existing value-chain page content (cream scene, photo card) */}
-        <section className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden bg-[#f8f7f2] px-6 py-24 text-[#15241d]">
+        <section className="relative flex flex-col justify-center overflow-hidden bg-[#f8f7f2] px-6 py-20 text-[#15241d]">
           <Reveal>
             <Eyebrow>{dict.nav.site.find((i) => i.href === "/value-chain")?.label ?? pages.valueChain.title}</Eyebrow>
             <SceneTitle size="lg">{pages.valueChain.title.replace(/\./g, "")}</SceneTitle>
@@ -190,7 +190,7 @@ export function MobileLanding({ dict, locale }: { dict: Dictionary; locale: Loca
 
         {/* 4 — Land restoration: existing regional pilots content (text in the sky, photo below) */}
         <section className="relative flex flex-col overflow-hidden bg-[#f8f7f2] text-[#15241d]">
-          <div className="relative flex flex-col justify-end px-6 pb-9 pt-24">
+          <div className="relative flex flex-col justify-end px-6 pb-9 pt-20">
             <Reveal>
               <Eyebrow>{pages.regionalPilots.title}</Eyebrow>
               <SceneTitle size="lg">{dict.mobile.landTitle}</SceneTitle>
@@ -219,7 +219,7 @@ export function MobileLanding({ dict, locale }: { dict: Dictionary; locale: Loca
 
         {/* 5 — Agronomic support: existing content (cream, photo bottom with expertise labels) */}
         <section className="relative flex flex-col overflow-hidden bg-[#f8f7f2] text-[#15241d]">
-          <div className="relative flex flex-col justify-end px-6 pb-9 pt-24">
+          <div className="relative flex flex-col justify-end px-6 pb-9 pt-20">
             <Reveal>
               <Eyebrow>{pages.agronomicSupport.title}</Eyebrow>
               <SceneTitle size="lg">{pages.agronomicSupport.subtitle}</SceneTitle>
@@ -240,7 +240,7 @@ export function MobileLanding({ dict, locale }: { dict: Dictionary; locale: Loca
 
         {/* 6 — Climate: existing carbon partnership content (text in the haze, photo below) */}
         <section className="relative flex flex-col overflow-hidden bg-[#f8f7f2] text-[#15241d]">
-          <div className="relative flex flex-col justify-end px-6 pb-9 pt-24">
+          <div className="relative flex flex-col justify-end px-6 pb-9 pt-20">
             <Reveal>
               <Eyebrow>{pages.carbon.title}</Eyebrow>
               <SceneTitle size="lg">{pages.carbon.subtitle}</SceneTitle>
@@ -258,7 +258,7 @@ export function MobileLanding({ dict, locale }: { dict: Dictionary; locale: Loca
 
         {/* 7 — Equipment: existing equipment content (cream, harvester photo bottom) */}
         <section className="relative flex flex-col overflow-hidden bg-[#f8f7f2] text-[#15241d]">
-          <div className="relative flex flex-col justify-end px-6 pb-9 pt-24">
+          <div className="relative flex flex-col justify-end px-6 pb-9 pt-20">
             <Reveal>
               <Eyebrow>{pages.equipment.title}</Eyebrow>
               <SceneTitle size="lg">{pages.equipment.subtitle}</SceneTitle>
