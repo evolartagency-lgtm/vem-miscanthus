@@ -144,7 +144,7 @@ html[dir="rtl"] .photo-layer:not(.no-rtl-flip) {
 html[lang="uk"] .section-title,
 html[lang="uk"] .hero-scene h1 {
   font-weight: 500;
-  letter-spacing: -.055em;
+  letter-spacing: -.04em;
   line-height: .91;
 }
 
@@ -1155,6 +1155,8 @@ h2.section-title,
 .mobile-landing h1,
 .mobile-landing h2 {
   font-family: var(--font-display-src), Georgia, serif !important;
+  letter-spacing: -0.035em;
+  word-spacing: -0.02em;
 }
 
 html[lang="he"] .hero-scene h1,
@@ -1173,4 +1175,14 @@ html[lang="he"] .mobile-landing h2 {
     mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.35) 20%, #000 42%, #000 74%, rgba(0, 0, 0, 0.45) 92%, rgba(0, 0, 0, 0) 100%);
     -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.35) 20%, #000 42%, #000 74%, rgba(0, 0, 0, 0.45) 92%, rgba(0, 0, 0, 0) 100%);
   }
+}
+
+
+/* Hero: tighten the word gap at display sizes. */
+
+
+/* Hero: keep a visible word gap despite tight tracking. */
+.hero-scene h1,
+html[lang="uk"] .hero-scene h1 {
+  word-spacing: 0.09em;
 }
