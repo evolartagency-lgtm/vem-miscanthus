@@ -357,7 +357,6 @@ html[dir="rtl"] #section-04 > div:nth-child(2) {
   transform: translate(0, 0);
 }
 
-.scene-section:hover > div:first-child { transform: scale(1.035); }
 
 @media (max-width: 640px) {
   .scene-section {
@@ -371,7 +370,6 @@ html[dir="rtl"] #section-04 > div:nth-child(2) {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .scene-section:hover > div:first-child { transform: none; }
 }
 
 ::selection {
