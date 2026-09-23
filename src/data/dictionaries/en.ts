@@ -501,6 +501,7 @@ export const en = {
   },
   mobile: {
     scrollCue: "Scroll to explore",
+    landTitle: "Bringing degraded lands back to life",
     heroEyebrow: "Restoring soil resources — for a sustainable tomorrow",
     heroSubtitle: "A natural solution for a climate-resilient future",
     heroCta: "Get a consultation",
@@ -512,7 +513,6 @@ export const en = {
     aboutText: "We are building a sustainable model of miscanthus cultivation that restores soils, reduces emissions and creates long-term value for people, business and the planet.",
     aboutCta: "Our approach",
     landEyebrow: "Land restoration",
-    landTitle: "Giving new life to degraded lands",
     landText: "Miscanthus restores soils, prevents erosion and returns productivity to the land.",
     landCta: "Learn more",
     agroEyebrow: "Agronomic support",

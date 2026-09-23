@@ -193,7 +193,7 @@ export function MobileLanding({ dict, locale }: { dict: Dictionary; locale: Loca
           <div className="relative flex flex-col justify-end px-6 pb-9 pt-24">
             <Reveal>
               <Eyebrow>{pages.regionalPilots.title}</Eyebrow>
-              <SceneTitle size="lg">{pages.regionalPilots.subtitle}</SceneTitle>
+              <SceneTitle size="lg">{dict.mobile.landTitle}</SceneTitle>
               <SceneText>{pages.regionalPilots.lead}</SceneText>
               <div className="mt-7 max-w-[280px]">
                 <SceneCta href={p("/regional-pilots")}>{dict.forms.configs.regionalPilot.submit}</SceneCta>
