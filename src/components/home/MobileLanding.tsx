@@ -173,8 +173,8 @@ export function MobileLanding({ dict, locale }: { dict: Dictionary; locale: Loca
         {/* 3 — Value chain: existing value-chain page content (cream scene, photo card) */}
         <section className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden bg-[#f8f7f2] px-6 py-24 text-[#15241d]">
           <Reveal>
-            <Eyebrow>{pages.valueChain.title}</Eyebrow>
-            <SceneTitle size="lg">{pages.valueChain.lead.split(" — ")[0]}</SceneTitle>
+            <Eyebrow>{dict.nav.site.find((i) => i.href === "/value-chain")?.label ?? pages.valueChain.title}</Eyebrow>
+            <SceneTitle size="lg">{pages.valueChain.title}</SceneTitle>
             <SceneText>{pages.valueChain.lead}</SceneText>
           </Reveal>
           <Reveal delay={0.12}>
