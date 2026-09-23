@@ -190,7 +190,7 @@ export function MobileLanding({ dict, locale }: { dict: Dictionary; locale: Loca
 
         {/* 4 — Land restoration: existing regional pilots content (text in the sky, photo below) */}
         <section className="relative flex flex-col overflow-hidden bg-[#f8f7f2] text-[#15241d]">
-          <div className="relative flex flex-col justify-end px-6 pb-9 pt-20">
+          <div className="relative flex flex-col justify-end px-6 pb-9 pt-12">
             <Reveal>
               <Eyebrow>{pages.regionalPilots.title}</Eyebrow>
               <SceneTitle size="lg">{dict.mobile.landTitle}</SceneTitle>
@@ -219,7 +219,7 @@ export function MobileLanding({ dict, locale }: { dict: Dictionary; locale: Loca
 
         {/* 5 — Agronomic support: existing content (cream, photo bottom with expertise labels) */}
         <section className="relative flex flex-col overflow-hidden bg-[#f8f7f2] text-[#15241d]">
-          <div className="relative flex flex-col justify-end px-6 pb-9 pt-20">
+          <div className="relative flex flex-col justify-end px-6 pb-9 pt-12">
             <Reveal>
               <Eyebrow>{pages.agronomicSupport.title}</Eyebrow>
               <SceneTitle size="lg">{pages.agronomicSupport.subtitle}</SceneTitle>
@@ -240,7 +240,7 @@ export function MobileLanding({ dict, locale }: { dict: Dictionary; locale: Loca
 
         {/* 6 — Climate: existing carbon partnership content (text in the haze, photo below) */}
         <section className="relative flex flex-col overflow-hidden bg-[#f8f7f2] text-[#15241d]">
-          <div className="relative flex flex-col justify-end px-6 pb-9 pt-20">
+          <div className="relative flex flex-col justify-end px-6 pb-9 pt-12">
             <Reveal>
               <Eyebrow>{pages.carbon.title}</Eyebrow>
               <SceneTitle size="lg">{pages.carbon.subtitle}</SceneTitle>
@@ -258,7 +258,7 @@ export function MobileLanding({ dict, locale }: { dict: Dictionary; locale: Loca
 
         {/* 7 — Equipment: existing equipment content (cream, harvester photo bottom) */}
         <section className="relative flex flex-col overflow-hidden bg-[#f8f7f2] text-[#15241d]">
-          <div className="relative flex flex-col justify-end px-6 pb-9 pt-20">
+          <div className="relative flex flex-col justify-end px-6 pb-9 pt-12">
             <Reveal>
               <Eyebrow>{pages.equipment.title}</Eyebrow>
               <SceneTitle size="lg">{pages.equipment.subtitle}</SceneTitle>
