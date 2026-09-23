@@ -147,8 +147,8 @@ export function MobileLanding({ dict, locale }: { dict: Dictionary; locale: Loca
         </section>
 
         {/* 2 — About: hero continues downward into the roots, title in the white haze */}
-        <section className="relative flex min-h-[100svh] flex-col overflow-hidden bg-[#f8f7f2] text-[#15241d]">
-          <div className="relative flex flex-1 flex-col justify-end px-6 pb-10 pt-28">
+        <section className="relative flex flex-col overflow-hidden bg-[#f8f7f2] text-[#15241d]">
+          <div className="relative flex flex-col justify-end px-6 pb-10 pt-24">
             <Reveal>
               <Eyebrow>{locale === "he" ? "מיסקנטוס: מהקרקע למערכת" : "Міскантус: від землі до системи"}</Eyebrow>
               <SceneTitle size="lg">{locale === "uk" ? "Від землі до системи" : locale === "he" ? "מהקרקע למערכת" : "From soil to system"}</SceneTitle>
@@ -189,8 +189,8 @@ export function MobileLanding({ dict, locale }: { dict: Dictionary; locale: Loca
         </section>
 
         {/* 4 — Land restoration: existing regional pilots content (text in the sky, photo below) */}
-        <section className="relative flex min-h-[100svh] flex-col overflow-hidden bg-[#f8f7f2] text-[#15241d]">
-          <div className="relative flex flex-1 flex-col justify-end px-6 pb-9 pt-28">
+        <section className="relative flex flex-col overflow-hidden bg-[#f8f7f2] text-[#15241d]">
+          <div className="relative flex flex-col justify-end px-6 pb-9 pt-24">
             <Reveal>
               <Eyebrow>{pages.regionalPilots.title}</Eyebrow>
               <SceneTitle size="lg">{pages.regionalPilots.subtitle}</SceneTitle>
@@ -218,8 +218,8 @@ export function MobileLanding({ dict, locale }: { dict: Dictionary; locale: Loca
         </section>
 
         {/* 5 — Agronomic support: existing content (cream, photo bottom with expertise labels) */}
-        <section className="relative flex min-h-[100svh] flex-col overflow-hidden bg-[#f8f7f2] text-[#15241d]">
-          <div className="relative flex flex-1 flex-col justify-end px-6 pb-9 pt-28">
+        <section className="relative flex flex-col overflow-hidden bg-[#f8f7f2] text-[#15241d]">
+          <div className="relative flex flex-col justify-end px-6 pb-9 pt-24">
             <Reveal>
               <Eyebrow>{pages.agronomicSupport.title}</Eyebrow>
               <SceneTitle size="lg">{pages.agronomicSupport.subtitle}</SceneTitle>
@@ -239,8 +239,8 @@ export function MobileLanding({ dict, locale }: { dict: Dictionary; locale: Loca
         </section>
 
         {/* 6 — Climate: existing carbon partnership content (text in the haze, photo below) */}
-        <section className="relative flex min-h-[100svh] flex-col overflow-hidden bg-[#f8f7f2] text-[#15241d]">
-          <div className="relative flex flex-1 flex-col justify-end px-6 pb-9 pt-28">
+        <section className="relative flex flex-col overflow-hidden bg-[#f8f7f2] text-[#15241d]">
+          <div className="relative flex flex-col justify-end px-6 pb-9 pt-24">
             <Reveal>
               <Eyebrow>{pages.carbon.title}</Eyebrow>
               <SceneTitle size="lg">{pages.carbon.subtitle}</SceneTitle>
@@ -257,8 +257,8 @@ export function MobileLanding({ dict, locale }: { dict: Dictionary; locale: Loca
         </section>
 
         {/* 7 — Equipment: existing equipment content (cream, harvester photo bottom) */}
-        <section className="relative flex min-h-[100svh] flex-col overflow-hidden bg-[#f8f7f2] text-[#15241d]">
-          <div className="relative flex flex-1 flex-col justify-end px-6 pb-9 pt-28">
+        <section className="relative flex flex-col overflow-hidden bg-[#f8f7f2] text-[#15241d]">
+          <div className="relative flex flex-col justify-end px-6 pb-9 pt-24">
             <Reveal>
               <Eyebrow>{pages.equipment.title}</Eyebrow>
               <SceneTitle size="lg">{pages.equipment.subtitle}</SceneTitle>
