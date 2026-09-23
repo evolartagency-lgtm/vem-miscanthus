@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Dictionary, Locale } from "@/data/dictionaries";
 import { MobileMenu } from "@/components/layout/MobileMenu";
@@ -13,9 +14,15 @@ export function SiteHeader({ dict, locale }: { dict: Dictionary; locale: Locale 
     <header className="vem-header fixed inset-x-0 top-0 z-[100] isolate border-b border-[#153c2b]/10 bg-[#f8f6ef]">
       <HeaderScroll />
       <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-6 px-6 py-4 sm:px-10 lg:px-14">
-        <Link href={p("/")} className="group vem-logo relative block pl-4 before:absolute before:inset-y-0 before:left-0 before:w-px before:bg-biomass">
-          <span className="vem-logo-mark block font-serif text-[27px] font-normal leading-none tracking-[0.08em] text-[#10271e]">VEM</span>
-          <span className="vem-logo-sub mt-1 block text-[6px] font-semibold uppercase tracking-[0.18em] text-[#10271e]/65">Vital Energy Miscanthus</span>
+        <Link href={p("/")} className="vem-logo relative block" aria-label="VEM — Vital Energy Miscanthus">
+          <Image
+            src="/images/vem-logo.png"
+            alt="VEM — Vital Energy Miscanthus"
+            width={1600}
+            height={664}
+            priority
+            className="h-9 w-auto rounded-lg bg-white/90 px-2 py-1 mix-blend-multiply lg:h-11"
+          />
         </Link>
         <nav aria-label="Primary" className="hidden items-center gap-6 lg:flex">
           {desktopItems.map((item) => (
@@ -56,9 +63,9 @@ export function SiteFooter({ dict, locale }: { dict: Dictionary; locale: Locale 
       <div className="mx-auto max-w-6xl px-6 py-16">
         <div className="flex flex-col gap-10 md:flex-row md:justify-between">
           <div className="max-w-sm">
-            <p className="text-[13px] font-bold tracking-[0.18em] text-bone">
-              VEM
-            </p>
+            <div className="inline-flex items-center rounded-xl bg-[#f8f7f2] px-4 py-2.5">
+              <Image src="/images/vem-logo.png" alt="VEM — Vital Energy Miscanthus" width={1600} height={664} className="h-9 w-auto mix-blend-multiply" />
+            </div>
             <p className="mt-4 text-[13px] leading-relaxed text-ash">
               {dict.brand.tagline}. {dict.brand.promise}.
             </p>
