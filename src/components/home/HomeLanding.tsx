@@ -60,10 +60,10 @@ export function HomeLanding({ dict, locale }: { dict: Dictionary; locale: Locale
             <h1 className="max-w-5xl font-sans text-[clamp(3.2rem,7.3vw,7.7rem)] font-extralight uppercase leading-[0.95] tracking-[-0.02em] text-stone-50">{h.hero.titleLines[0]}<br /><span className="text-stone-100">{h.hero.titleLines[1]}</span></h1><p className="mt-7 text-[10px] font-semibold tracking-[0.18em] text-biomass uppercase sm:whitespace-nowrap sm:text-[11px] sm:tracking-[0.26em]">Regenerative bioeconomy · Circular economy · Low-carbon industry</p><p className="mt-5 max-w-lg text-[15px] leading-7 text-stone-300">{h.hero.lead}</p><div className="mt-8 flex flex-wrap gap-3"><CtaLink href={p("/buy-rhizomes")}>{h.rhizomes.ctaPrimary}<span aria-hidden>→</span></CtaLink><CtaLink href={p("/directions")} variant="outline">{dict.funnels.navLabel}</CtaLink><CtaLink href={p("/about")} variant="outline">{locale === "uk" ? "Про нас" : locale === "he" ? "עלינו" : "About us"}</CtaLink></div><div aria-hidden className="mt-9 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-stone-200 lg:hidden">
               <span className="animate-drift-up text-base leading-none">↓</span>{dict.mobile.scrollCue}
             </div></Reveal>
-          <Reveal delay={0.18} className="hero-availability border-l border-[#d5b36d] bg-[linear-gradient(90deg,rgba(5,17,12,.62),rgba(5,17,12,.12))] px-7 py-7 backdrop-blur-[2px]">
+          <Reveal delay={0.18} className="hero-availability border-l border-[#d5b36d] bg-[linear-gradient(90deg,rgba(5,17,12,.95)_0%,rgba(5,17,12,.85)_60%,rgba(5,17,12,.66)_100%)] px-7 py-7 backdrop-blur-[4px]">
             <p className="font-serif text-5xl font-normal leading-none text-[#f0d394] drop-shadow-[0_2px_16px_rgba(0,0,0,.8)]">{formatBatchCount(locale)}</p>
-            <p className="mt-3 font-serif text-2xl font-normal uppercase leading-[1.1] text-white drop-shadow-[0_2px_16px_rgba(0,0,0,.9)]">{h.rhizomes.counterTitle}</p>
-            <p className="mt-3 text-[11px] font-medium leading-5 text-stone-200">{h.rhizomes.counterNote}</p>
+            <p className="mt-3 font-serif text-2xl font-normal uppercase leading-[1.1]" style={{ color: "#f3efe2" }}>{h.rhizomes.counterTitle}</p>
+            <p className="mt-3 text-[11px] font-medium leading-5" style={{ color: "#e9e4d5" }}>{h.rhizomes.counterNote}</p>
             <ol aria-label={dict.order.steps.join(" → ")} className="mt-5 flex flex-wrap gap-1.5">
               {dict.order.steps.map((s, i) => (
                 <li key={s} className="rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-[10px] font-semibold text-stone-100">{i + 1}. {s}</li>
