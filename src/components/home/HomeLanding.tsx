@@ -54,9 +54,6 @@ export function HomeLanding({ dict, locale }: { dict: Dictionary; locale: Locale
       <div className="relative mx-auto flex w-full max-w-[1440px] flex-col justify-end px-6 pb-8 sm:px-10 lg:px-14 lg:pb-10">
         <div className="grid items-end gap-12 lg:grid-cols-[1fr_400px]">
           <Reveal>
-            <div className="mb-9 inline-flex items-center rounded-xl bg-[rgba(248,247,242,.94)] px-5 py-3.5 shadow-[0_10px_34px_rgba(17,36,28,.14)]">
-              <Image src="/images/vem-logo.png" alt="VEM — Vital Energy Miscanthus" width={1600} height={664} priority className="h-12 w-auto mix-blend-multiply lg:h-14" />
-            </div>
             <h1 className="max-w-5xl font-sans text-[clamp(3.2rem,7.3vw,7.7rem)] font-extralight uppercase leading-[0.95] tracking-[-0.02em] text-stone-50">{h.hero.titleLines[0]}<br /><span className="text-stone-100">{h.hero.titleLines[1]}</span></h1><p className="mt-7 text-[10px] font-semibold tracking-[0.18em] text-biomass uppercase sm:whitespace-nowrap sm:text-[11px] sm:tracking-[0.26em]">Regenerative bioeconomy · Circular economy · Low-carbon industry</p><p className="mt-5 max-w-lg text-[15px] leading-7 text-stone-300">{h.hero.lead}</p><div className="mt-8 flex flex-wrap gap-3"><CtaLink href={p("/buy-rhizomes")}>{h.rhizomes.ctaPrimary}<span aria-hidden>→</span></CtaLink><CtaLink href={p("/directions")} variant="outline">{dict.funnels.navLabel}</CtaLink><CtaLink href={p("/about")} variant="outline">{locale === "uk" ? "Про нас" : locale === "he" ? "עלינו" : "About us"}</CtaLink></div><div aria-hidden className="mt-9 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-stone-200 lg:hidden">
               <span className="animate-drift-up text-base leading-none">↓</span>{dict.mobile.scrollCue}
             </div></Reveal>
