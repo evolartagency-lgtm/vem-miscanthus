@@ -64,7 +64,7 @@ export function SiteFooter({ dict, locale }: { dict: Dictionary; locale: Locale 
         <div className="flex flex-col gap-10 md:flex-row md:justify-between">
           <div className="max-w-sm">
             <div className="inline-flex items-center rounded-xl bg-[#f8f7f2] px-4 py-2.5">
-              <Image src="/images/vem-logo.png" alt="VEM — Vital Energy Miscanthus" width={1600} height={664} className="h-9 w-auto mix-blend-multiply" />
+              <Image src="/images/vem-logo.png" alt="VEM — Vital Energy Miscanthus" width={1600} height={664} className="h-12 w-auto mix-blend-multiply" />
             </div>
             <p className="mt-4 text-[13px] leading-relaxed text-ash">
               {dict.brand.tagline}. {dict.brand.promise}.
