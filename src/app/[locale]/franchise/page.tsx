@@ -22,7 +22,7 @@ export default async function FranchisePage({
   return (
     <div className="min-h-svh bg-carbon">
       <SiteHeader dict={dict} locale={locale} />
-      <main id="main">
+      <main id="main" className="inner-page">
         <SceneSection
           num="01"
           eyebrow={dict.brand.name}
